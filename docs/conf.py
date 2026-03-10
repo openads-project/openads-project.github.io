@@ -40,7 +40,7 @@ html_static_path = ['_static']
 
 # PyData Theme configuration
 html_theme_options = {
-    "github_url": "https://github.com/oads-org/openads.github.io",
+    "github_url": "https://github.com/oads-org/oads-org.github.io",
     "use_edit_page_button": True,
     "show_toc_level": 2,
     "navigation_depth": 3,
@@ -52,7 +52,7 @@ html_theme_options = {
 
 html_context = {
     "github_user": "oads-org",
-    "github_repo": "openads.github.io",
+    "github_repo": "oads-org.github.io",
     "github_version": "init",  # TODO: change to main
     "doc_path": "docs",
 }

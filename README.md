@@ -2,7 +2,7 @@
 
 > This project is currently under construction
 
-The full documentation is available at [GitHub Pages](https://openads.github.io).
+The full documentation is available at [GitHub Pages](https://oads-org.github.io).
 
 ## Local Development
 
