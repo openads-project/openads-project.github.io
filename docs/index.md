@@ -8,9 +8,10 @@ This project is currently under construction
 
 ```{toctree}
 :maxdepth: 2
-:caption: Design Documentation
 
-design/architecture
+design/design
+usage/usage
+development/development
 ```
 
 ## Overview
