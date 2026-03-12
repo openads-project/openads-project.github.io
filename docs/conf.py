@@ -40,7 +40,7 @@ html_theme = 'pydata_sphinx_theme'
 
 # PyData Theme configuration
 html_theme_options = {
-    "github_url": "https://github.com/oads-org/oads-org.github.io",
+    "github_url": "https://github.com/openads-project/openads-project.github.io",
     "use_edit_page_button": True,
     "show_toc_level": 2,
     "navigation_depth": 3,
@@ -51,8 +51,8 @@ html_theme_options = {
 }
 
 html_context = {
-    "github_user": "oads-org",
-    "github_repo": "oads-org.github.io",
+    "github_user": "openads-project",
+    "github_repo": "openads-project.github.io",
     "github_version": "init",  # TODO: change to main
     "doc_path": "docs",
 }
