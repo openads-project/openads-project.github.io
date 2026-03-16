@@ -1,27 +1,27 @@
-# Tools
+# 🛠️ Tools
 
-## DevOps
+## 🚀 DevOps
 
 ### Module Templates (ROS 2)
 
-- brief description and link to `ros2-pkg-create`
+- Brief description and link to `ros2-pkg-create`
 
-### Automated Conterization in CI/CD (ROS 2)
+### Automated Containerization in CI/CD (ROS 2)
 
-- brief description and link to `docker-ros`
+- Brief description and link to `docker-ros`
 
-## Simulation
+## 🎮 Simulation
 
-- brief description and link to README of OpenADSim
+- Brief description and link to the README of OpenADSim
 
-### CARLA Simluator
+### CARLA Simulator
 
-- brief desciption of capabilities using CARLA in OpenADSim
+- Brief description of capabilities using CARLA in OpenADSim
 
 ### SUMO Simulator
 
-- brief desciption of capabilities using CARLA in OpenADSim
+- Brief description of capabilities using SUMO in OpenADSim
 
-### Propreitary Simulators
+### Proprietary Simulators
 
 Adapters for proprietary simulators are available upon request at [opensource@ika.rwth-aachen.de](mailto:opensource@ika.rwth-aachen.de).

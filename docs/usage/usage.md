@@ -1,4 +1,4 @@
-# Usage
+# 📖 Usage
 
 ```{toctree}
 :maxdepth: 2
@@ -8,18 +8,18 @@ modules
 tools
 ```
 
-## Quick start
+## 🚀 Quick Start
 
-- Install Docker and nvidia driver
-- clone sim-platform
-- start simulation with default setup
-- explain usage of rviz with route planning tool
-- links to documentation of advanced usage and development
+- Install Docker and NVIDIA driver
+- Clone the sim-platform repository
+- Start the simulation with the default setup
+- Explore the usage of RViz with the route planning tool
+- Links to documentation for advanced usage and development
 
-## Advanced Usage
+## ⚙️ Advanced Usage
 
-- how to select different configurations using sim-platform GUI
-  - vehicles
-  - maps
-  - scenario-based testing
-- link to sim-platform readme for detailed explanation of profiles, env vars etc.
+- How to select different configurations using the sim-platform GUI
+  - 🚘 Vehicles
+  - 🗺️ Maps
+  - 🎬 Scenario-based testing
+- Link to the sim-platform README for a detailed explanation of profiles, environment variables, etc.

@@ -1,45 +1,45 @@
-# Modules
+# 🧩 Modules
 
-The OpenADStack is a composition of perception, understanding, planning and control modules. Each of them is developed in a dedicated Git repository. The following gives a brief introduction in the overall approach and module functionalities. Have a look at the linked README documents for further details.
+The OpenADStack is a composition of Perception, Understanding, Planning, and Control modules. Each module is developed in a dedicated Git repository. The following provides a brief introduction to the overall approach and module functionalities. Refer to the linked README documents for further details.
 
-## Perception
+## 👁️ Perception
 
-- short description of perception approach
+- Short description of the perception approach
 
 ### Lidar Fusion
 
-- short description and link to README of `point_cloud_fusion` repo
+- Short description and link to the README of the `point_cloud_fusion` repository
 
 ### Lidar Object Detection
 
 ### ...
 
-## Understanding
+## 🧠 Understanding
 
-- short description of perception approach
+- Short description of the understanding approach
 
 ### Object List Prediction
 
-- short description and link to README of `lanelet2_object_list_prediction` repo
+- Short description and link to the README of the `lanelet2_object_list_prediction` repository
 
 ### ...
 
-## Planning
+## 📍 Planning
 
-- short description of planning approach
+- Short description of the planning approach
 
 ### Simple Planner
 
-- short description and link to README of `simple_planner` repo
+- Short description and link to the README of the `simple_planner` repository
 
 ### ...
 
-## Control
+## 🎮 Control
 
-- short description of control approach
+- Short description of the control approach
 
 ### Trajectory Control
 
-- short description and link to README of `ackermann_trajectory_control` repo
+- Short description and link to the README of the `ackermann_trajectory_control` repository
 
 ### ...

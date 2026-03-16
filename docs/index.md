@@ -1,8 +1,19 @@
-# Open Automated Driving Systems
+# 🚗 OpenADS
 
 ```{note}
-This project is currently under construction
+🚧 This project is currently under construction.
 ```
+
+## The Open Automated Driving Systems Project
+
+The OpenADS project is a **collaborative, open-source ecosystem for Automated Driving Systems** development:
+
+- 🧠 Complete functional open-source **OpenADStack** reference implementation of an Automated Driving System, comprising Perception, Understanding, Planning, and Actuation modules. [Contributions](./development/development.md) to improve or integrate additional modules are welcome.
+- 🎮 The **OpenADSim** simulation environment supports multiple simulators for prototyping and testing, including [CARLA](https://carla.org/) for environment and vehicle simulation and [SUMO](https://eclipse.dev/sumo/) for urban traffic simulation. [Contributions](./development/development.md) to integrate more simulators are welcome.
+- 🛠️ **DevOps tools** that streamline developer workflows, such as module templates and ready-to-use development environments.
+- ✅ **Automated testing** on both module and system level, including unit tests and scenario-based testing in simulation.
+
+![OpenADS Overview](openads.drawio.svg){align=center}
 
 ## Contents
 
@@ -14,13 +25,12 @@ usage/usage
 development/development
 ```
 
-## Overview
+## 🚀 Getting Started
 
-Welcome to the Open Automated Driving Systems documentation. This project aims to provide an open-source framework for automated driving systems.
+Check out the [**Quick Start Guide**](./usage/usage.md) to start using OpenADS right away — it's just a few commands away.
 
-- Anschauliches Bild (Vorschläge): 
-  - OpenADStack als Block in der Mitte, daneben Screenshot von OpenADSim und Foto vom karl. (und autoSHUTTLE) mit Screenshots von Rviz. Alle verwensen auf OpenADStack. Außen große Box mit Titel Open Automated Driving Systems (OpenADS)
+📐 Learn more about the [design goals](./design/design.md) and system architecture.
 
-## Getting Started
+📖 Explore the [Usage Guide](./usage/usage.md) to discover the full range of possibilities with OpenADS.
 
-Have a look at the [Quick Start Guide](./usage/usage.md#quick-start) to start using OpenADS right away -  it's just a few commands away. Explore the [Usage Guide](./usage/usage.md) to explore the whole bunch of possibilities how to use OpenADS. Of course, we appreciate contributions very much! All AD developers are welcome to find out more techical details about the [Modules](./usage/modules.md) and [Tools](./usage/tools.md) and how to [contribute](./development/development.md) to OpenADS.
+🤝 We greatly appreciate contributions! All AD developers are welcome to dive into the technical details of the [Modules](./usage/modules.md) and [Tools](./usage/tools.md) and learn how to [contribute](./development/development.md) to OpenADS.
