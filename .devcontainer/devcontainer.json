@@ -1,12 +1,10 @@
 {
   "name": "Open Automated Driving Systems - Documentation",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-trixie",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -26,7 +24,9 @@
         "python.linting.pylintEnabled": true,
         "python.formatting.provider": "black",
         "editor.formatOnSave": true,
-        "editor.rulers": [88],
+        "editor.rulers": [
+          88
+        ],
         "files.associations": {
           "*.md": "markdown"
         },
@@ -41,13 +41,11 @@
       }
     }
   },
-
   "postCreateCommand": "pip install --user -r docs/requirements.txt && pip install --user black pylint",
-
-  "forwardPorts": [8000],
-
+  "forwardPorts": [
+    8000
+  ],
   "remoteUser": "vscode",
-
   "mounts": [
     "source=${localWorkspaceFolder}/.git,target=${containerWorkspaceFolder}/.git,type=bind,consistency=cached"
   ]
