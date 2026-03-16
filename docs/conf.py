@@ -59,6 +59,8 @@ html_context = {
     "doc_path": "docs",
 }
 
+html_show_sourcelink = False
+
 # Intersphinx configuration
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3', None),
