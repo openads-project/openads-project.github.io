@@ -1,4 +1,4 @@
-# 🚗 OpenADS
+# OpenADS 🧠 🎮 🛠️
 
 ```{note}
 🚧 This project is currently under construction.
