@@ -10,15 +10,21 @@
 
 The following diagram visualizes the OpenADS ecosystem architecture that defines the foundation for collaboratively developing Open Automated Driving Systems.
 
-### OpenADSystems — The Overall Ecosystem Architecture
+### OpenADSystems — The Open Automated Driving Ecosystem
 
 A comprehensive documentation serves as the main entry point to the OpenADS ecosystem. It enables a low-effort jump start to get everything up and running and to begin using and contributing to OpenADS. It explains the architecture of the functional components and tooling that enable the use of the OpenADStack with OpenADSimulation.
 
 ![Architecture Diagram](architecture.drawio.svg)
 
-### OpenADStack — The Automated Driving Stack
+### OpenADStack — The Open Automated Driving Stack
 
-- AD-Stack-Diagramm von Miro (überführen in draw.io)?
+- Short description and link to OpenADStack repo.
+- Integrate architecture image from ad-stack repo via URL here.
+
+### OpenADSim — The Open Automated Driving Simluation Suite
+
+- Short description and link to OpenADSim repo.
+- Integrate architecture image from simulation repo via URL here.
 
 ## 🎯 Design Goals
 
@@ -37,7 +43,7 @@ With the transition from ROS, which originally targeted only rapid prototyping a
 - ♻️ **Reusability for distributed teams:** Teams are often involved in different projects with different focuses. However, there is significant potential for reusing and extending existing solutions without excessive overhead caused by system complexity.
 - 📈 **Scalability in mind:** It should be as easy as possible to leverage existing open-source software instead of reinventing the wheel over and over again.
 
-## 🧩 OpenADS Design
+## 💡 OpenADS Design
 
 - 🧬 **Microservice architecture**: Isolated modules that can be used in different stacks, enabling easy module development in distributed teams without requiring system-wide knowledge. OpenADS isolates modules at the ROS package level. Typically, each repository contains one ROS package. It may contain multiple packages if they are closely related (e.g., interface definitions alongside functional packages). This allows isolated development and discussions (e.g., in issues), while CI/CD workflows ensure integration into the overall system.
 - 📦 **Containerization**: Each module defines its dependencies and provides all information needed to build a self-contained container image in its repository. Combined with the provided development environment, developers can start coding on individual modules right away without needing to understand or run the entire system.

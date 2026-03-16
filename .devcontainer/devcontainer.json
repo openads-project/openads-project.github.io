@@ -24,9 +24,6 @@
         "python.linting.pylintEnabled": true,
         "python.formatting.provider": "black",
         "editor.formatOnSave": true,
-        "editor.rulers": [
-          88
-        ],
         "files.associations": {
           "*.md": "markdown"
         },

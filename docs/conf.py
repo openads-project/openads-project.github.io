@@ -48,7 +48,7 @@ html_theme_options = {
     "navigation_depth": 3,
     "navbar_align": "left",
     "logo": {
-        "text": "Open Automated Driving Systems",
+        "text": "OpenADS",
     }
 }
 
