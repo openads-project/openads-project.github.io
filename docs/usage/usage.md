@@ -10,16 +10,23 @@ tools
 
 ## 🚀 Quick Start
 
+### Requirements
+
+- Hardware resources
 - Install Docker and NVIDIA driver
-- Clone the sim-platform repository
+
+### Simulation-Driven
+
+- Clone `openadsim` repository
 - Start the simulation with the default setup
-- Explore the usage of RViz with the route planning tool
-- Links to documentation for advanced usage and development
-
-## ⚙️ Advanced Usage
-
-- How to select different configurations using the sim-platform GUI
+- Explore RViz and plan a custom route yourself
+- Links to documentation for advanced usage and development:
   - 🚘 Vehicles
   - 🗺️ Maps
   - 🎬 Scenario-based testing
-- Link to the sim-platform README for a detailed explanation of profiles, environment variables, etc.
+  - Link to the openadsim documentation for detailed explanation about configuration options.
+
+### Real-World Replay
+
+- Clone `openadstack` repository
+- Explore example data from real-world vehicles
