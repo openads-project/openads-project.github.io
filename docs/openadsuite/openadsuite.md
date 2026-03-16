@@ -26,7 +26,9 @@ tools
 - add to openadsim
 - create forks and pull requests
 
-## 🔍 System Analysis
+## 🔍 System Analysis & Testing
 
 - Middleware Support
 - Tracing
+- adding new test cases
+- adding new scenarios metrics
