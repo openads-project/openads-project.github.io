@@ -37,6 +37,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
+      - name: Checkout openadsim repository
+        uses: actions/checkout@v4
+        with:
+          repository: openads-project/openadsim
+          path: _openadsim_tmp
+
+      - name: Copy openadsim docs into build tree
+        run: |
+          mkdir -p docs/openadsim/remote
+          cp -r _openadsim_tmp/docs/. docs/openadsim/remote/
+          rm -rf _openadsim_tmp
+
       - name: Build Sphinx documentation
         run: |
           cd docs
