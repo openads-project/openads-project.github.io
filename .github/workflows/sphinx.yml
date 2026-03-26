@@ -45,8 +45,7 @@ jobs:
 
       - name: Copy openadsim docs into build tree
         run: |
-          mkdir -p docs/openadsim/remote
-          cp -r _openadsim_tmp/docs/. docs/openadsim/remote/
+          cp -r _openadsim_tmp/docs/. docs/openadsim/
           rm -rf _openadsim_tmp
 
       - name: Build Sphinx documentation

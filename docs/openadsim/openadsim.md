@@ -3,17 +3,17 @@
 ```{toctree}
 :maxdepth: 2
 :hidden:
-remote/requirements
-remote/usage
-remote/architecture
-remote/configuration
-remote/usecase-ml-planning
-remote/usecase-cooperative-perception
-remote/usecase-scenario-testing
-remote/custom-integration
-remote/faq
+requirements
+usage
+architecture
+configuration
+usecase-ml-planning
+usecase-cooperative-perception
+usecase-scenario-testing
+custom-integration
+faq
 ```
 
-```{include} ./remote/overview.md
+```{include} ./overview.md
 :start-after: # OpenAD**Sim**
 ```
