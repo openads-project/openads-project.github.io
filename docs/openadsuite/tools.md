@@ -1,4 +1,4 @@
-# 🛠️ Tools
+# Tools
 
 ## Module Templates (ROS 2)
 

@@ -7,16 +7,16 @@
 tools
 ```
 
-## 🤝 Contribution Guideline
+## Contribution Guideline
 
 - ...
 
-## 🔧 Existing Module Development
+## Existing Module Development
 
 - How to use the dev image and attach VS Code to develop inside a container
 - Development in a Dev Container of a single repository vs. modifying Docker Compose to use the dev image and attaching to the container
 
-## ➕ New Module Integration
+## New Module Integration
 
 - fork template repo
 - add package with ros2-pkg-create
@@ -26,7 +26,7 @@ tools
 - add to openadsim
 - create forks and pull requests
 
-## 🔍 System Analysis & Testing
+## System Analysis & Testing
 
 - Middleware Support
 - Tracing

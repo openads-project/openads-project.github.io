@@ -5,18 +5,23 @@
 :hidden:
 ```
 
-## ✅ Requirements
+## Requirements
 
-- Hardware resources
-- Install Docker and NVIDIA driver
+- The whole toolchain requires about 50 GB of disk space. Using only _OpenADStack_ without _OpenADSim_ will require significantly less.
+- While some modules are built form `arm64` architectures (e.g. used in `NVIDIA Jetson Orin`), the complete toolchain is only supported on amd64.
+- Thanks to consequent containerization, all operating systems supporting [Docker](https://www.docker.com/) should be finde. However, we test only on `Ubuntu 24.04`.
+- NVIDIA GPU with at least 8 GB VRAM is recommended.
+- Current installations of [Docker](https://docs.docker.com/engine/install/ubuntu/), [Docker Compose](https://docs.docker.com/compose/install/) and the [NVIDIA driver](https://ubuntu.com/server/docs/how-to/graphics/install-nvidia-drivers/)
+- Make sure your user is added to the `docker` group to be able to use Docker without root priviledges. This can be done with `sudo usermod -aG docker $USER`. This will be effective after a new login.
+- Make sure your machine has access to its X server for graphical output, e.g. with `xhost +local:`
 
-## 🚘 Real-World Example
+## Run OpenADStack using Recorded Data
 
 - Clone `openadstack` repository
 - Explore example data from real-world vehicles
 - [Link](../openadstack/openadstack.md) to openadstack
 
-## 🎮 Simulation Example
+## Simulate OpenADStack using OpenADSim
 
 - Clone `openadsim` repository
 - Start the simulation with the default setup

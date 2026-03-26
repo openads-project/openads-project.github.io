@@ -1,8 +1,8 @@
-# 🧩 Services
+# Services
 
 The OpenADStack is a composition of Perception, Understanding, Planning, and Control modules, called **OpenADServices**. Each service is developed in a dedicated Git repository. The following provides a brief introduction to the overall approach and module functionalities. Refer to the linked README documents for further details.
 
-## 👁️ Perception
+## Perception
 
 - Short description of the perception approach
 
@@ -14,7 +14,7 @@ The OpenADStack is a composition of Perception, Understanding, Planning, and Con
 
 ### ...
 
-## 🧠 Understanding
+## Understanding
 
 - Short description of the understanding approach
 
@@ -24,7 +24,7 @@ The OpenADStack is a composition of Perception, Understanding, Planning, and Con
 
 ### ...
 
-## 📍 Planning
+## Planning
 
 - Short description of the planning approach
 
@@ -34,7 +34,7 @@ The OpenADStack is a composition of Perception, Understanding, Planning, and Con
 
 ### ...
 
-## 🎮 Control
+## Control
 
 - Short description of the control approach
 
