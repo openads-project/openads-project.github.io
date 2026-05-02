@@ -26,3 +26,7 @@ The OpenADS project is a **collaborative, open-source ecosystem for Automated Dr
 - 🛠️ [**OpenADSuite**](./openadsuite/openadsuite.md) provides development tools that streamline developer workflows, such as module templates and ready-to-use development environments.
 
 ![OpenADS Overview](openads.drawio.svg){align=center}
+
+The following video shows *OpenADStack* running on the fully driverless autoSHUTTLE:
+
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/DCx0iTOmsMI/0.jpg){align=center}](https://www.youtube.com/watch?v=DCx0iTOmsMI)
