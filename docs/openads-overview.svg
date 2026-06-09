@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="520" viewBox="0 0 960 520" role="img" aria-labelledby="title desc">
+  <title id="title">OpenADS ecosystem tutorial diagram</title>
+  <desc id="desc">Diagram of OpenADS with OpenADServices, OpenADStack, OpenADSim, OpenADSuite, benchmarking, and the tutorial workflow.</desc>
+  <defs>
+    <filter id="shadow" x="-18%" y="-18%" width="136%" height="136%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#111827" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto" markerUnits="strokeWidth">
+      <path d="M1.5,1.5 L6.5,4 L1.5,6.5 Z" fill="#2563eb"/>
+    </marker>
+    <style>
+      .label { font: 800 18px Inter, Segoe UI, Arial, sans-serif; fill: #111827; }
+      .small { font: 600 13px Inter, Segoe UI, Arial, sans-serif; fill: #5b6472; }
+      .badge { font: 800 13px Inter, Segoe UI, Arial, sans-serif; fill: #1d4ed8; letter-spacing: .04em; }
+      .bartext { font: 800 16px Inter, Segoe UI, Arial, sans-serif; fill: #111827; }
+      .openad { fill: #111827; font-weight: 900; }
+      .variant { fill: #4b5563; font-weight: 800; }
+      .step { font: 800 15px Inter, Segoe UI, Arial, sans-serif; fill: #ffffff; }
+    </style>
+  </defs>
+
+  <rect width="960" height="520" rx="16" fill="#f7f8f5"/>
+  <rect x="28" y="30" width="904" height="390" rx="10" fill="#ffffff" stroke="#cfd8cf" stroke-width="2"/>
+  <text class="badge" x="52" y="61">OpenADS Ecosystem</text>
+
+  <g filter="url(#shadow)" font-family="Inter, Segoe UI, Arial, sans-serif">
+    <g transform="translate(64 96)">
+      <rect width="218" height="244" rx="8" fill="#ffffff" stroke="#d9dee8"/>
+      <path d="M0 8 Q0 0 8 0 H210 Q218 0 218 8 V44 H0 Z" fill="#edf3ff"/>
+      <text class="bartext" x="18" y="29"><tspan class="openad">OpenAD</tspan><tspan class="variant">Services</tspan></text>
+      <text class="small" x="18" y="68">Functional service modules</text>
+      <rect x="18" y="92" width="182" height="32" rx="7" fill="#f2f5f8" stroke="#d9dee8"/>
+      <text class="small" x="34" y="113">Perception</text>
+      <rect x="18" y="140" width="182" height="32" rx="7" fill="#f2f5f8" stroke="#d9dee8"/>
+      <text class="small" x="34" y="161">Planning</text>
+      <rect x="18" y="188" width="182" height="32" rx="7" fill="#f2f5f8" stroke="#d9dee8"/>
+      <text class="small" x="34" y="209">Control</text>
+    </g>
+
+    <g transform="translate(374 88)">
+      <rect width="230" height="168" rx="8" fill="#ffffff" stroke="#d9dee8"/>
+      <path d="M0 8 Q0 0 8 0 H222 Q230 0 230 8 V44 H0 Z" fill="#e8f1ee"/>
+      <text class="bartext" x="18" y="29"><tspan class="openad">OpenAD</tspan><tspan class="variant">Stack</tspan></text>
+      <text class="small" x="18" y="68">Collaborative Reference stack</text>
+      <rect x="18" y="92" width="194" height="28" rx="7" fill="#f2f5f8" stroke="#d9dee8"/>
+      <text class="small" x="32" y="111">Stable interfaces</text>
+      <rect x="18" y="128" width="194" height="28" rx="7" fill="#f2f5f8" stroke="#d9dee8"/>
+      <text class="small" x="32" y="147">Integration baseline</text>
+    </g>
+
+    <g transform="translate(694 110)">
+      <rect width="190" height="96" rx="8" fill="#ffffff" stroke="#d9dee8"/>
+      <path d="M0 8 Q0 0 8 0 H182 Q190 0 190 8 V40 H0 Z" fill="#fff3dc"/>
+      <text class="bartext" x="18" y="27"><tspan class="openad">OpenAD</tspan><tspan class="variant">Sim</tspan></text>
+      <text class="small" x="18" y="64">Scenario-based testing</text>
+      <text class="small" x="18" y="84">Scalable execution</text>
+    </g>
+
+    <g transform="translate(374 284)">
+      <rect width="190" height="116" rx="8" fill="#ffffff" stroke="#d9dee8"/>
+      <path d="M0 8 Q0 0 8 0 H182 Q190 0 190 8 V40 H0 Z" fill="#f9e8e6"/>
+      <text class="bartext" x="18" y="27"><tspan class="openad">OpenAD</tspan><tspan class="variant">Suite</tspan></text>
+      <text class="small" x="18" y="64">Development tools</text>
+      <text class="small" x="18" y="86">templates, build, tests</text>
+    </g>
+
+    <g transform="translate(694 286)">
+      <rect width="190" height="96" rx="8" fill="#ffffff" stroke="#d9dee8"/>
+      <path d="M0 8 Q0 0 8 0 H182 Q190 0 190 8 V40 H0 Z" fill="#edf3ff"/>
+      <text class="bartext" x="18" y="27">Benchmarking</text>
+      <text class="small" x="18" y="64">Evaluation and validation</text>
+      <text class="small" x="18" y="84">Neutral metric selection</text>
+    </g>
+  </g>
+
+  <g fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" marker-end="url(#arrow)">
+    <path d="M292 218 C326 218 334 172 364 172"/>
+    <path d="M616 172 C646 172 654 158 684 158"/>
+    <path d="M374 338 C336 338 318 306 292 258"/>
+    <path d="M564 338 C610 338 646 334 684 334"/>
+    <path d="M789 216 L789 276"/>
+  </g>
+
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <g transform="translate(181 452)">
+      <rect width="178" height="42" rx="8" fill="#1f8a70"/>
+      <text class="step" x="89" y="27" text-anchor="middle">1. Integration</text>
+    </g>
+    <g transform="translate(391 452)">
+      <rect width="178" height="42" rx="8" fill="#2563eb"/>
+      <text class="step" x="89" y="27" text-anchor="middle">2. Simulation</text>
+    </g>
+    <g transform="translate(601 452)">
+      <rect width="178" height="42" rx="8" fill="#b45309"/>
+      <text class="step" x="89" y="27" text-anchor="middle">3. Benchmarking</text>
+    </g>
+  </g>
+</svg>

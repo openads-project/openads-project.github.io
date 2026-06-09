@@ -10,8 +10,6 @@
 
 The following diagram visualizes the OpenADS ecosystem architecture that defines the foundation for collaboratively developing Open Automated Driving Systems.
 
-### OpenADSystems: The Open Automated Driving Ecosystem
-
 A comprehensive documentation serves as the main entry point to the OpenADS ecosystem. It enables a low-effort jump start to get everything up and running and to begin using and contributing to OpenADS. It explains the architecture of the functional components and tooling that enable the use of the OpenADStack with OpenADSimulation.
 
 ![Architecture Diagram](architecture.drawio.svg)
