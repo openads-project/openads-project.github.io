@@ -44,6 +44,7 @@ html_sidebars = {
     'start/start': [],
     'design/design': [],
     'openadshowcases/openadshowcases': [],
+    'openadsuite/tools': [],
 }
 
 # PyData Theme configuration

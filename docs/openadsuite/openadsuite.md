@@ -1,5 +1,7 @@
 # 🛠️ OpenADSuite
 
+The OpenADSuite comprises several tools and templates that streamline developer workflows and improve code quality and maintainability. Check out the [Tools](tools.md) section for an overview and find development guides in the following.
+
 ```{toctree}
 :maxdepth: 2
 :hidden:
