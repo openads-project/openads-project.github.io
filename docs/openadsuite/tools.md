@@ -2,7 +2,7 @@
 
 OpenADSuite comprises tools for [DevOps](#devops), common [interfaces](#interfaces) and [monitoring](#monitoring).
 
-> 🔗: Repository is not hosted in the [openads-project](github.com/openads-project/) GitHub organization
+> Repositories tagged with 🔗 are not hosted in the [openads-project](https://github.com/openads-project/) GitHub organization
 
 ## DevOps
 
