@@ -40,6 +40,12 @@ myst_heading_anchors = 3
 html_theme = 'pydata_sphinx_theme'
 # html_static_path = ['_static']
 
+html_sidebars = {
+    'start/start': [],
+    'design/design': [],
+    'openadshowcases/openadshowcases': [],
+}
+
 # PyData Theme configuration
 html_theme_options = {
     "github_url": "https://github.com/openads-project/openads-project.github.io",
