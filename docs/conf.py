@@ -16,6 +16,7 @@ release = '1.0.0'
 
 extensions = [
     'myst_parser',  # Support for Markdown
+    'sphinx_design',
     'sphinx.ext.autodoc',
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
