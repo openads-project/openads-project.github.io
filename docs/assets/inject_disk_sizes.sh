@@ -9,7 +9,7 @@ fi
 
 START_PAGE="$1"
 OPENADSTACK_COMPOSE_FILE="$2"
-OPENADSIM_SOURCE="$3"
+OPENADSIM_COMPOSE_FILE="$3"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CALCULATE_SCRIPT="$SCRIPT_DIR/calculate_disk_size.sh"
 
@@ -20,6 +20,11 @@ fi
 
 if [[ ! -f "$OPENADSTACK_COMPOSE_FILE" ]]; then
 	echo "Error: OpenADStack compose file not found: $OPENADSTACK_COMPOSE_FILE" >&2
+	exit 1
+fi
+
+if [[ ! -f "$OPENADSIM_COMPOSE_FILE" ]]; then
+	echo "Error: OpenADSim compose file not found: $OPENADSIM_COMPOSE_FILE" >&2
 	exit 1
 fi
 
@@ -67,7 +72,7 @@ resolve_size() {
 }
 
 openadstack_size="$(format_size "$(extract_bytes "$OPENADSTACK_COMPOSE_FILE")")"
-openadsim_size="10 GB"  # "$(resolve_size "$OPENADSIM_SOURCE")"  # TODO: uncomment once openadsim is available
+openadsim_size="10 GB"  # "$(resolve_size "$OPENADSIM_COMPOSE_FILE")"  # TODO: uncomment once openadsim is available
 
 python3 - "$START_PAGE" "$openadstack_size" "$openadsim_size" <<'PY'
 from pathlib import Path
