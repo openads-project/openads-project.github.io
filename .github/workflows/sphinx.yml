@@ -62,46 +62,7 @@ jobs:
 
       - name: Inject calculated disk sizes into docs
         run: |
-          extract_bytes() {
-            bash docs/assets/calculate_disk_size.sh "$1" | awk -F': ' '/Total size \(bytes\)/ {print $2}'
-          }
-
-          format_size() {
-            python3 - "$1" <<'PY'
-              import sys
-
-              size = int(sys.argv[1])
-              units = ["B", "KiB", "MiB", "GiB", "TiB"]
-              value = float(size)
-
-              for unit in units:
-                  if value < 1024 or unit == units[-1]:
-                      if unit == "B":
-                          print(f"{int(value)} {unit}")
-                      elif value >= 100:
-                          print(f"{value:.0f} {unit}")
-                      elif value >= 10:
-                          print(f"{value:.1f} {unit}")
-                      else:
-                          print(f"{value:.2f} {unit}")
-                      break
-                  value /= 1024
-            PY
-          }
-
-          openadstack_size="$(format_size "$(extract_bytes _openadstack_tmp/docker-compose.yml)")"
-          openadsim_size="10 GB"  # "$(format_size "$(extract_bytes _openadsim_tmp/docker-compose.yml)")"
-
-          python3 - "$openadstack_size" "$openadsim_size" <<'PY'
-            from pathlib import Path
-            import sys
-
-            path = Path("docs/start/start.md")
-            text = path.read_text()
-            text = text.replace("$DISK_SIZE_OPENADSTACK", sys.argv[1])
-            text = text.replace("$DISK_SIZE_OPENADSIM", sys.argv[2])
-            path.write_text(text)
-          PY
+          bash docs/assets/inject_disk_sizes.sh docs/start/start.md _openadstack_tmp/docker-compose.yml "10 GB"
 
       - name: Build Sphinx documentation
         run: |
