@@ -3,9 +3,8 @@
 ```{toctree}
 :maxdepth: 2
 :hidden:
+benchmarks
 ```
-
-> 🚧 Under Construction
 
 The goal of OpenADS is to provide a complete toolchain and reference implementation that can become the basis for a commercialized, safety-certified level 4 automated driving system. This involves technical, process-related, and regulatory requirements regarding system safety and security as specified, for example, by the German [AFGBV regulation](https://www.gesetze-im-internet.de/afgbv/BJNR098610022.html) (*Autonome-Fahrzeuge-Genehmigungs-und-Betriebs-Verordnung* / *Regulations on the Approval and Operation of Autonomous Vehicles*).
 
@@ -91,27 +90,7 @@ This is where CI pipelines, scenario catalogs, benchmark histories, and architec
 
 Module benchmarks can provide evidence supporting the safety argumentation. They are most useful when they are tied to concrete safety questions, representative scenarios, and explicit pass or warning thresholds.
 
-#### Perception Benchmarks
-
-Useful perception evidence may include detection and tracking performance, spatial accuracy, latency, confidence calibration, robustness across weather and lighting, and behavior under partial sensor degradation. For safety work, it is especially important to look at long-tail cases and systematic weaknesses rather than only global averages.
-
-Examples of relevant benchmark dimensions are:
-
-- Recall and precision for safety-relevant object classes.
-- Position, velocity, and classification accuracy.
-- Time-to-detect and end-to-end latency under compute load.
-- Performance degradation for occlusion, night driving, rain, or rare object appearances.
-
-#### Planning Benchmarks
-
-Planning benchmarks should evaluate whether a module generates safe, feasible, and understandable behavior under realistic traffic situations. This includes not only route success but also compliance with constraints and graceful degradation when information is missing or uncertain.
-
-Examples of relevant benchmark dimensions are:
-
-- Collision rate, minimum time-to-collision, and rule-violation rate.
-- Trajectory feasibility with respect to kinematics, dynamics, and map topology.
-- Comfort-related metrics such as jerk, curvature continuity, and unnecessary stops.
-- Fallback behavior when perception, localization, or map inputs become unreliable.
+More details on benchmark design, traceability, and interpretation are collected in the dedicated [Benchmarks](./benchmarks.md) page.
 
 ## Cybersecurity
 
