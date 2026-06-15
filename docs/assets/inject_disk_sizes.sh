@@ -23,11 +23,10 @@ if [[ ! -f "$OPENADSTACK_COMPOSE_FILE" ]]; then
 	exit 1
 fi
 
-# TODO: uncomment once OpenADSim is available
-# if [[ ! -f "$OPENADSIM_COMPOSE_FILE" ]]; then
-# 	echo "Error: OpenADSim compose file not found: $OPENADSIM_COMPOSE_FILE" >&2
-# 	exit 1
-# fi
+if [[ ! -f "$OPENADSIM_COMPOSE_FILE" ]]; then
+	echo "Error: OpenADSim compose file not found: $OPENADSIM_COMPOSE_FILE" >&2
+	exit 1
+fi
 
 extract_bytes() {
 	bash "$CALCULATE_SCRIPT" "$1" | awk -F': ' '/Total size \(bytes\)/ {print $2}'
