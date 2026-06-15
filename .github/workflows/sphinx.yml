@@ -42,6 +42,7 @@ jobs:
         with:
           repository: openads-project/openadstack
           path: _openadstack_tmp
+          token: ${{ secrets.GITHUB_TOKEN }}
           ref: openadstack  # TODO: change to main
 
       # - name: Copy openadstack docs into build tree
