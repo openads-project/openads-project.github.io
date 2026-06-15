@@ -36,6 +36,12 @@ Provides several Docker images on [DockerHub](https://hub.docker.com/u/rwthika) 
 
 This tool is available in the provided base images and can be used to generate ROS 2 packages with different templates, e.g. for parameter loading, launch configurations, publishers/subscribers, services, action servers/clients, timers, diagnostics and more.
 
+### CLI tool for simplified interaction with Docker images
+
+[`docker-run`](https://github.com/ika-rwth-aachen/docker-run) 🔗
+
+docker-run is a CLI tool for simplified interaction with Docker images. Use it to easily start and attach to Docker containers with useful predefined arguments, e.g. for graphical output.
+
 ## Interfaces
 
 ### Common perception message definitions and tools
