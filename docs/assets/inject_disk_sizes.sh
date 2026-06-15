@@ -3,7 +3,7 @@
 set -euo pipefail
 
 if [[ $# -ne 3 ]]; then
-	echo "Usage: $0 <start-page> <openadstack-compose> <openadsim-size-or-compose>" >&2
+	echo "Usage: $0 <start-page> <openadstack-compose> <openadsim-compose>" >&2
 	exit 1
 fi
 
@@ -73,7 +73,7 @@ resolve_size() {
 }
 
 openadstack_size="$(format_size "$(extract_bytes "$OPENADSTACK_COMPOSE_FILE")")"
-openadsim_size="10 GB"  # "$(resolve_size "$OPENADSIM_COMPOSE_FILE")"  # TODO: uncomment once openadsim is available
+openadsim_size="$(format_size "$(extract_bytes "$OPENADSIM_COMPOSE_FILE")")"
 
 python3 - "$START_PAGE" "$openadstack_size" "$openadsim_size" <<'PY'
 from pathlib import Path

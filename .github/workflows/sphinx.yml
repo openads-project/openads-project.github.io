@@ -68,9 +68,10 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ github.token }}
 
+      # TODO: Change to openadsim compose file once available
       - name: Inject calculated disk sizes into docs
         run: |
-          bash docs/assets/inject_disk_sizes.sh docs/start/start.md _openadstack_tmp/docker-compose.yml _openadsim_tmp/docker-compose.yml
+          bash docs/assets/inject_disk_sizes.sh docs/start/start.md _openadstack_tmp/docker-compose.yml _openadstack_tmp/docker-compose.yml
 
       - name: Build Sphinx documentation
         run: |
