@@ -41,6 +41,7 @@ jobs:
           repository: openads-project/openadstack
           path: _openadstack_tmp
           token: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
+          lfs: true
           ref: image-test  # TODO: change to main
 
       # - name: Copy openadstack docs into build tree
@@ -53,6 +54,7 @@ jobs:
       #     repository: openads-project/openadsim
       #     path: _openadsim_tmp
       #     token: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
+      #     lfs: true
 
       # - name: Copy openadsim docs into build tree
       #   run: |
