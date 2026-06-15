@@ -34,27 +34,27 @@ OpenADS has been developed and used in several national and international projec
 ::::{grid} 1 1 2 3
 :gutter: 2
 
-:::{grid-item-card} UNICARagil
+:::{grid-item-card}
 :class-card: sd-text-center
 [![UNICARagil Logo](./assets/logo-unicaragil.png)](https://www.unicaragil.de/en/)
 :::
 
-:::{grid-item-card} autotech.agil
+:::{grid-item-card}
 :class-card: sd-text-center
 [![autotech.agil Logo](./assets/logo-autotechagil.png)](https://www.autotechagil.de/en/index.htm)
 :::
 
-:::{grid-item-card} 6GEM / 6GEM+
+:::{grid-item-card}
 :class-card: sd-text-center
 [![6GEM Logo](./assets/logo-6gem.png)](https://6gem.de/en/)
 :::
 
-:::{grid-item-card} AIthena
+:::{grid-item-card}
 :class-card: sd-text-center
 [![AIthena Logo](./assets/logo-aithena.png)](https://aithena.eu/)
 :::
 
-:::{grid-item-card} AIggregate
+:::{grid-item-card}
 :class-card: sd-text-center
 [![AIggregate Logo](./assets/logo-aiggregate.png)](https://aiggregate.eu/)
 :::
