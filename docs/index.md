@@ -1,4 +1,4 @@
-# OpenADS: The Open Automated Driving Systems Project
+# Open Automated Driving Systems
 
 ```{note}
 🚧 This project is currently under construction.
@@ -15,6 +15,8 @@ openadsim/openadsim
 openadsuite/openadsuite
 openadsafety/openadsafety
 ```
+
+![OpenADS Logo](./assets/openads.png){align=center width=300px}
 
 The OpenADS project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
 

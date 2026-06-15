@@ -56,9 +56,12 @@ html_theme_options = {
     "navigation_depth": 3,
     "navbar_align": "left",
     "logo": {
-        "text": "OpenADS",
+        "image_light": "assets/openads.ico",
+        "image_dark": "assets/openads.ico"
     }
 }
+
+html_favicon = 'assets/openads.ico'
 
 html_context = {
     "github_user": "openads-project",
