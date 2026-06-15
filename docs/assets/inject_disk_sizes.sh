@@ -67,7 +67,7 @@ resolve_size() {
 }
 
 openadstack_size="$(format_size "$(extract_bytes "$OPENADSTACK_COMPOSE_FILE")")"
-openadsim_size="$(resolve_size "$OPENADSIM_SOURCE")"
+openadsim_size="10 GB"  # "$(resolve_size "$OPENADSIM_SOURCE")"  # TODO: uncomment once openadsim is available
 
 python3 - "$START_PAGE" "$openadstack_size" "$openadsim_size" <<'PY'
 from pathlib import Path

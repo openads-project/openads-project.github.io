@@ -11,6 +11,7 @@ on:
 
 permissions:
   contents: read
+  packages: read
   pages: write
   id-token: write
 
@@ -60,9 +61,16 @@ jobs:
       #   run: |
       #     cp -r _openadsim_tmp/docs/. docs/openadsim/
 
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ github.token }}
+
       - name: Inject calculated disk sizes into docs
         run: |
-          bash docs/assets/inject_disk_sizes.sh docs/start/start.md _openadstack_tmp/docker-compose.yml "10 GB"
+          bash docs/assets/inject_disk_sizes.sh docs/start/start.md _openadstack_tmp/docker-compose.yml _openadsim_tmp/docker-compose.yml
 
       - name: Build Sphinx documentation
         run: |
