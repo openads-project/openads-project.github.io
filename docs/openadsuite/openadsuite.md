@@ -88,11 +88,9 @@ Found a bug or want to add a feature to an existing OpenADS module? The followin
 
 Want to add functionality that is not yet covered by an existing OpenADS module, or integrate open source software from another ecosystem into OpenADS? A growing distributed ecosystem makes it easier to compare and test different approaches. The following steps will help you create a new OpenADS module quickly, whether you are building new functionality or integrating an existing solution:
 
-1. Use the [openads_demo_module](https://github.com/openads-project/openads_demo_module) template repository to create a new GitHub repository in the organization of your choice by selecting the `Use this template` &#8594; `Create a new repository` button in the upper-right corner.
+1. Use the [openads_demo_module](https://github.com/openads-project/openads_demo_module) template repository to create a new GitHub repository in the organization of your choice by selecting the ![Use this template](./assets/template-button.png){width=100px} &#8594; `Create a new repository` button in the upper-right corner.
 2. Select a name for the new repository. In most cases, this should match the name of the main ROS package in the repository and follow the [ROS naming convention](https://ros.org/reps/rep-0144.html), for example `openads_test_module`.
-3. Ensure that CI workflows are allowed to push Docker images to the container registry in your GitHub organization or personal namespace:
-   1. In *organization* namespaces: Enable `Settings / Actions / General / Workflow permissions / Read and write permissions` and `Settings / Packages / Package creation / Public` in the organization settings.
-   2. In *personal* namespaces: Enable `Settings / Actions / General / Workflow permissions / Read and write permissions` in the repository settings.
+3. Configure the [recommended GitHub repository settings](https://github.com/openads-project/openads_demo_module#%EF%B8%8F-recommended-github-settings). This also allows CI workflows to push Docker images to the container registry in your GitHub organization or personal namespace.
 4. Verify that the `docker-ros` workflow successfully created a development image in the repository's [Actions](https://github.com/openads-project/openads_demo_module/actions/workflows/docker-ros.yml) tab. If needed, use `Re-Run All Jobs` to restart the pipeline.
 5. Clone the repository to your workstation. Use the `--recursive` argument to include the development environment submodule, or run `git submodule update --init` afterward if you cloned without it:
 
