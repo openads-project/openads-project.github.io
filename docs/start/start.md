@@ -7,9 +7,11 @@
 
 ## Requirements
 
-- The whole toolchain requires about 50 GB of disk space. Using only *OpenADStack* without *OpenADSim* will require significantly less.
+- The disk space required for pulling all necessary Docker images is:
+  - **$DISK_SIZE_OPENADSTACK** for the *OpenADStack* only,
+  - **$DISK_SIZE_OPENADSIM** for the whole toolchain including *OpenADSim*.
 - While some modules are built for `arm64` architectures (e.g. used in *NVIDIA Jetson Orin*), the complete toolchain is only supported on `amd64`.
-- Thanks to consequent containerization, all operating systems supporting [Docker](https://www.docker.com/) should be fine. However, we currently test only on `Ubuntu 24.04`.
+- Thanks to consequent containerization, most Linux operating systems supporting [Docker](https://www.docker.com/) should be fine. However, we currently test only on `Ubuntu 24.04`.
 - Current installations of [Docker](https://docs.docker.com/engine/install/ubuntu/), [Docker Compose](https://docs.docker.com/compose/install/), the [NVIDIA driver](https://ubuntu.com/server/docs/how-to/graphics/install-nvidia-drivers/) and the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) are required.
 - NVIDIA GPU with at least 8 GB VRAM is recommended.
 - Make sure your user is added to the `docker` group to be able to use Docker without root priviledges. This can be done with `sudo usermod -aG docker $USER`, which  will be effective after a new login.

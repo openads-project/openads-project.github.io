@@ -37,16 +37,69 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
-      - name: Checkout openadsim repository
+      - name: Checkout openadstack repository
         uses: actions/checkout@v4
         with:
-          repository: openads-project/openadsim
-          path: _openadsim_tmp
+          repository: openads-project/openadstack
+          path: _openadstack_tmp
+          ref: openadstack  # TODO: change to main
 
-      - name: Copy openadsim docs into build tree
+      # - name: Copy openadstack docs into build tree
+      #   run: |
+      #     cp -r _openadstack_tmp/docs/. docs/openadstack/
+
+      # - name: Checkout openadsim repository
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: openads-project/openadsim
+      #     path: _openadsim_tmp
+
+      # - name: Copy openadsim docs into build tree
+      #   run: |
+      #     cp -r _openadsim_tmp/docs/. docs/openadsim/
+
+      - name: Inject calculated disk sizes into docs
         run: |
-          cp -r _openadsim_tmp/docs/. docs/openadsim/
-          rm -rf _openadsim_tmp
+          extract_bytes() {
+            bash docs/assets/calculate_disk_size.sh "$1" | awk -F': ' '/Total size \(bytes\)/ {print $2}'
+          }
+
+          format_size() {
+            python3 - "$1" <<'PY'
+              import sys
+
+              size = int(sys.argv[1])
+              units = ["B", "KiB", "MiB", "GiB", "TiB"]
+              value = float(size)
+
+              for unit in units:
+                  if value < 1024 or unit == units[-1]:
+                      if unit == "B":
+                          print(f"{int(value)} {unit}")
+                      elif value >= 100:
+                          print(f"{value:.0f} {unit}")
+                      elif value >= 10:
+                          print(f"{value:.1f} {unit}")
+                      else:
+                          print(f"{value:.2f} {unit}")
+                      break
+                  value /= 1024
+            PY
+          }
+
+          openadstack_size="$(format_size "$(extract_bytes _openadstack_tmp/docker-compose.yml)")"
+          openadsim_size="10 GB"  # "$(format_size "$(extract_bytes _openadsim_tmp/docker-compose.yml)")"
+
+          python3 - "$openadstack_size" "$openadsim_size" <<'PY'
+            from pathlib import Path
+            import sys
+
+            path = Path("docs/start/start.md")
+            text = path.read_text()
+            text = text.replace("$DISK_SIZE_OPENADSTACK", sys.argv[1])
+            text = text.replace("$DISK_SIZE_OPENADSIM", sys.argv[2])
+            path.write_text(text)
+          PY
 
       - name: Build Sphinx documentation
         run: |
