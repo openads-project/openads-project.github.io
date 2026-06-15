@@ -66,7 +66,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ github.token }}
+          password: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
 
       # TODO: Change to openadsim compose file once available
       - name: Inject calculated disk sizes into docs
