@@ -61,9 +61,9 @@ OpenADS has been developed and used in several national and international projec
 
 ::::
 
-## Showcases
+## Integrations
 
-OpenADS is used in multiple real implementations, including research vehicles of different sizes, as well as, infrastructure test fields. If you are also an active user of OpenADS, we encourage you to open a Pull Request und list your showcase here, as well.
+OpenADS is used in multiple real implementations, including research vehicles of different sizes, as well as, infrastructure test fields. If you are also an active user of OpenADS, you are welcome to [add your own integrations](https://github.com/openads-project/openads-project.github.io/edit/init/docs/index.md) relying on OpenADS.
 
 ### Research Vehicles
 
