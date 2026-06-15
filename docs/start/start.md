@@ -30,7 +30,7 @@ docker compose up
 
 The execution can be stopped with `CTRL-C`. Chekout the [OpenADStack](../openadstack/openadstack.md) section for more information.
 
-## Closed-loop simulation with OpenADSim
+## Running OpenADSim for closed-loop simulation
 
 Clone the [OpenADSim](https://github.com/openads-project/openadsim) repository and start the provided docker composition. This will pull the required Docker images and run the stack in CARLA simulation.
 
