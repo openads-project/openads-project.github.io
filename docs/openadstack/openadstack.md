@@ -1,4 +1,4 @@
-# 🧠 OpenADStack
+# 🤖 OpenADStack
 
 ```{toctree}
 :maxdepth: 2
