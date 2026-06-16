@@ -1,9 +1,11 @@
 # 🎮 OpenADSim
 
+```{div} align-center
+[![GitHub](https://img.shields.io/badge/GitHub-openads--project%2Fopenadsim-181717?logo=github)](https://github.com/openads-project/openadsim)
+
 ```{toctree}
 :maxdepth: 2
 :hidden:
-requirements
 usage
 architecture
 configuration
