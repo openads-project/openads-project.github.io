@@ -9,9 +9,9 @@
 usage
 architecture
 configuration
-usecase-ml-planning
-usecase-cooperative-perception
-usecase-scenario-testing
+example-ml-planning
+example-cooperative-perception
+example-scenario-testing
 custom-integration
 ```
 
