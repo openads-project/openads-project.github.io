@@ -9,9 +9,9 @@
 usage
 architecture
 configuration
-example-ml-planning
-example-cooperative-perception
 example-scenario-testing
+example-cooperative-perception
+example-ml-planning
 custom-integration
 ```
 
