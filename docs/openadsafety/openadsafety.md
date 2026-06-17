@@ -20,7 +20,9 @@ In practice, safety work in OpenADS spans three complementary questions:
 - **SOTIF:** Is the intended functionality itself sufficiently safe within the operational design domain, even if no fault is present?
 - **Cybersecurity:** Is the system protected against malicious misuse that could compromise safety or availability?
 
-## Functional Safety (FuSa, ISO 26262)
+:::{dropdown} Functional Safety (FuSa)
+
+[![](https://img.shields.io/badge/ISO-26262--3-green?logo=GitBook)](https://www.dinmedia.de/en/standard/iso-26262-3/300423934)
 
 > ❓ *Did we build the functions right?*
 
@@ -60,7 +62,11 @@ Examples of measures that may support ASIL-oriented architectures include:
 - Deterministic fallback behavior if a module violates timing or consistency assumptions.
 - Traceable requirements and bidirectional links between requirements, code, tests, and evidence.
 
-## Safety of the intended functionality (SOTIF, ISO/PAS 21448)
+:::
+
+:::{dropdown} Safety of the intended functionality (SOTIF)
+
+[![](https://img.shields.io/badge/ISO-21448-green?logo=GitBook)](https://www.iso.org/standard/77490.html)
 
 > ❓ *Did we build the right functions?*
 
@@ -90,13 +96,17 @@ A safety argument for OpenADS should not only claim that a module performs well,
 
 This is where CI pipelines, scenario catalogs, benchmark histories, and architecture documentation become valuable: they can provide repeatable evidence instead of one-off demonstrations.
 
-### Module Benchmarks
+### Module and Full-Stack Benchmarks
 
 Module benchmarks can provide evidence supporting the safety argumentation. They are most useful when they are tied to concrete safety questions, representative scenarios, and explicit pass or warning thresholds.
 
 More details on benchmark design, traceability, and interpretation are collected in the dedicated [Benchmarks](./benchmarks.md) page.
 
-## Cybersecurity
+:::
+
+:::{dropdown} Cybersecurity
+
+[![](https://img.shields.io/badge/UN_ECE-R_155-green?logo=GitBook)](https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security)
 
 > ❓ *Can the system be manipulated in a way that compromises safety?*
 
@@ -110,3 +120,5 @@ Relevant cybersecurity topics for OpenADS include:
 - Interaction between cybersecurity incidents and safety mechanisms, for example denial of service, spoofed data, or unauthorized actuation paths.
 
 Because OpenADS is heavily based on modular repositories, container images, and CI/CD, cybersecurity engineering should be treated as a first-class systems concern rather than an afterthought. Secure defaults in development infrastructure can directly reduce the effort needed later for regulatory approval and field deployment.
+
+:::
