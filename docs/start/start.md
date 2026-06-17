@@ -12,11 +12,13 @@
   - **$DISK_SIZE_OPENADSIM** for the whole toolchain including *OpenADSim*.
 - While some modules are built for `arm64` architectures (e.g. used in *NVIDIA Jetson Orin*), the complete toolchain is only supported on `amd64`.
 - Thanks to consequent containerization, most Linux operating systems supporting [Docker](https://www.docker.com/) should be fine. However, we currently test only on `Ubuntu 24.04`.
-- Current installations of [Docker](https://docs.docker.com/engine/install/ubuntu/), [Docker Compose](https://docs.docker.com/compose/install/), the [NVIDIA driver](https://ubuntu.com/server/docs/how-to/graphics/install-nvidia-drivers/) and the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) are required.
+- Current installations of [Docker (>= 29.5.2)](https://docs.docker.com/engine/install/ubuntu/) and [Docker Compose (>= 5.1.4)](https://docs.docker.com/compose/install/) are required. Some parts of OpenADS (e.g. using CARLA in [OpenADSim](../openadsim/openadsim.md) and some machine learning-based services) require a current [NVIDIA driver (>=590)](https://docs.nvidia.com/datacenter/tesla/driver-installation-guide/latest/ubuntu.html) and the [NVIDIA Container Toolkit (>=1.19.1)](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) are required.
 - NVIDIA GPU with at least 8 GB VRAM is recommended.
-- Make sure your user is added to the `docker` group to be able to use Docker without root priviledges. This can be done with `sudo usermod -aG docker $USER`, which  will be effective after a new login.
-- Make sure to allow local connections to the X server to enable graphical output from Docker containers, e.g. with `xhost +local:`.
+- Make sure your user is added to the `docker` group to be able to use Docker without root privileges. This can be done with `sudo usermod -aG docker $USER`, which  will be effective after a new login.
+- As some services (e.g. monitoring and simulation) may need graphical output, make sure to allow local connections to the X server to enable graphical output from Docker containers, e.g. by executing `xhost +local:` in a terminal.
 - The development environment is based on [Visual Studio Code](https://code.visualstudio.com/) with [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
+
+> ⚠️ Please [open an issue](https://github.com/openads-project/openads-project.github.io/issues/new/choose) and describe your setup and problems, if this quick start guide does not work for you.
 
 ## Running OpenADStack on recorded data
 
@@ -27,10 +29,10 @@ TODO: add screenshot
 ```bash
 git clone --recursive https://github.com/openads-project/openadstack.git
 cd openadstack
-docker compose up
+docker compose up -d
 ```
 
-The execution can be stopped with `CTRL-C`. Chekout the [OpenADStack](../openadstack/openadstack.md) section for more information.
+The execution can be stopped with `docker compose down`. Chekout the [OpenADStack](../openadstack/openadstack.md) section for more information.
 
 ## Running OpenADSim for closed-loop simulation
 
@@ -41,7 +43,7 @@ TODO: add screenshot
 ```bash
 git clone --recursive https://github.com/openads-project/openadsim.git
 cd openadsim
-docker compose up
+docker compose up -d
 ```
 
-The execution can be stopped with `CTRL-C`. Chekout the [OpenADSim](../openadsim/openadsim.md) section for more information.
+The execution can be stopped with `docker compose down`. Chekout the [OpenADSim](../openadsim/openadsim.md) section for more information.
