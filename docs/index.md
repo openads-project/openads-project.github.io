@@ -60,6 +60,16 @@ OpenADS has been developed and used in several national and international projec
 [![AIggregate Logo](./assets/logo-aiggregate.png)](https://aiggregate.eu/)
 :::
 
+:::{grid-item-card}
+:class-card: sd-text-center
+[![SYNERGIES Logo](./assets/logo-synergies.png)](https://synergies-ccam.eu/)
+:::
+
+:::{grid-item-card}
+:class-card: sd-text-center
+[![iEXODUS Logo](./assets/logo-iexodus.png)](https://iexoddus-project.eu/)
+:::
+
 ::::
 
 ## Integrations
