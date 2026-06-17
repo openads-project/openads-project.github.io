@@ -80,7 +80,7 @@ OpenADS is used in multiple real implementations, including research vehicles of
 
 #### karl. | Research Vehicle for Automated and Connected Driving
 
-*![karl. research vehicle](https://www.ika.rwth-aachen.de/images/pruefstaende/karl/2025-05-30_karl.jpg){align=center width=600px}*
+[![karl. research vehicle](https://www.ika.rwth-aachen.de/images/pruefstaende/karl/2025-05-30_karl.jpg){align=center width=600px}](https://www.youtube.com/watch?v=DCx0iTOmsMI)
 
 [karl.](https://www.ika.rwth-aachen.de/en/competences/equipment/research-vehicles/karl-en.html) is a customizable and extensible research platform designed for developing and validating innovative functions for automated and connected driving by the [Institute for Automotive Engineering (ika)](https://www.ika.rwth-aachen.de/en/) of RWTH Aachen University.
 
@@ -88,7 +88,7 @@ The vehicle is run by perception, understanding, planning and control modules fr
 
 #### autoSHUTTLE | Demonstrating the future of urban transportation
 
-*![autoSHUTTLE research vehicle](https://www.ika.rwth-aachen.de/images/pruefstaende/autoshuttle.webp){align=center width=600px}*
+[![autoSHUTTLE research vehicle](https://www.ika.rwth-aachen.de/images/pruefstaende/autoshuttle.webp){align=center width=600px}](https://www.youtube.com/watch?v=DCx0iTOmsMI)
 
 The [autoSHUTTLE](https://www.ika.rwth-aachen.de/en/competences/equipment/research-vehicles/unicaragil-autoshuttle-en.html) was built up in the [UNICARagil project](https://www.unicaragil.de/en/) by a consortium of 16 universities and companies at ten locations in Germany. It was built completely from scratch demonstrating disruptive new architectures for geometry, electrics/electronics, software, and function especially targetting driverless vehicles.
 
