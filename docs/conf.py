@@ -55,6 +55,7 @@ html_theme_options = {
     "show_toc_level": 2,
     "navigation_depth": 3,
     "navbar_align": "left",
+    "header_links_before_dropdown": 8,
     "logo": {
         "image_light": "assets/openads.ico",
         "image_dark": "assets/openads.ico"
