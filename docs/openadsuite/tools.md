@@ -4,13 +4,19 @@ OpenADSuite comprises tools for [DevOps](#devops), common [interfaces](#interfac
 
 > Repositories tagged with 🔗 are not hosted in the [openads-project](https://github.com/openads-project/) GitHub organization
 
-## DevOps
+## Development
 
 ### OpenADS Module Template
 
 [`openads_demo_module`](https://github.com/openads-project/openads_demo_module)
 
 Template for new OpenADS modules including the OpenADSuite development environment and CI/CD workflows as well as sample ROS 2 packages generated with [ros2-pkg-create](https://github.com/ika-rwth-aachen/ros2-pkg-create).
+
+### Powerful ROS 2 Package Generator
+
+[`ros2-pkg-create`](https://github.com/ika-rwth-aachen/ros2-pkg-create) 🔗
+
+This tool is available in the provided base images and can be used to generate ROS 2 packages with different templates, e.g. for parameter loading, launch configurations, publishers/subscribers, services, action servers/clients, timers, diagnostics and more.
 
 ### Common development environment for OpenADS modules
 
@@ -30,17 +36,25 @@ The docker-ros GitHub/GitLab workflows automatically build development and deplo
 
 Provides several Docker images on [DockerHub](https://hub.docker.com/u/rwthika) including different combinations of `ROS` distros and different versions of `CUDA`, `TensorRT`, `Triton`, `PyTorch` and `TensorFlow`. These images can be used as base images in the [docker-ros](https://github.com/ika-rwth-aachen/docker-ros) containerization pipeline.
 
-### Powerful ROS 2 Package Generator
-
-[`ros2-pkg-create`](https://github.com/ika-rwth-aachen/ros2-pkg-create) 🔗
-
-This tool is available in the provided base images and can be used to generate ROS 2 packages with different templates, e.g. for parameter loading, launch configurations, publishers/subscribers, services, action servers/clients, timers, diagnostics and more.
-
 ### CLI tool for simplified interaction with Docker images
 
 [`docker-run`](https://github.com/ika-rwth-aachen/docker-run) 🔗
 
 docker-run is a CLI tool for simplified interaction with Docker images. Use it to easily start and attach to Docker containers with useful predefined arguments, e.g. for graphical output.
+
+## Monitoring
+
+### Monitoring and Visualization using native ROS tools
+
+[`monitoring`](https://github.com/openads-project/monitoring)
+
+Monitoring and visualization using [RViz](https://github.com/ros2/rviz), a native ROS 2 tool, with support for message definitions used in OpenADS.
+
+### Web-based Visualization using Lichtblick
+
+[`lichtblick`](https://github.com/openads-project/lichtblick)
+
+Monitoring and visualization using the web-based [Lichtblick](https://github.com/lichtblick-suite/lichtblick) tool with support for message definitions used in OpenADS.
 
 ## Interfaces
 
@@ -62,16 +76,8 @@ Provides extensible ROS message definitions for the planning task in Cooperative
 
 ROS message definitions for V2X applications (e.g. `CAM`, `CPM`, `DENM`, `MAPEM`, `SPATEM`) generated from the `ASN.1` files officially published by the [European Telecommunications Standards Institute](https://forge.etsi.org/rep/ITS/asn1)
 
-## Monitoring
+### Data Model, Data Format and Python Library for Handling Ground Truth Road Traffic Data
 
-### Monitoring and Visualization using native ROS tools
+[`omega-prime`](https://github.com/ika-rwth-aachen/omega-prime) 🔗
 
-[`rviz-monitoring`](https://github.com/openads-project/rviz-monitoring)
-
-Monitoring and visualization using [RViz](https://github.com/ros2/rviz), a native ROS 2 tool, with support for message definitions used in OpenADS.
-
-### Web-based Visualization using Lichtblick
-
-[`lichtblick-monitoring`](https://github.com/openads-project/lichtblick-monitoring)
-
-Monitoring and visualization using the web-based [Lichtblick](https://github.com/lichtblick-suite/lichtblick) tool with support for message definitions used in OpenADS.
+Data Model, Format and Python Library for ground truth road traffic data containing information on dynamic objects, map and environmental factors optimized for representing urban traffic.
