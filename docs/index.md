@@ -14,6 +14,7 @@ openadstack/openadstack
 openadsim/openadsim
 openadsuite/openadsuite
 openadsafety/openadsafety
+support/support.md
 ```
 
 ![OpenADS Logo](./assets/openads.png){align=center width=300px}
