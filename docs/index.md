@@ -26,7 +26,7 @@ The OpenADS project is a **collaborative, open-source ecosystem for Automated Dr
 - 🛠️ [**OpenADSuite**](./openadsuite/openadsuite.md) provides development tools that streamline developer workflows, such as module templates and ready-to-use development environments.
 - 🛡️ [**OpenADSafety**](./openadsafety/openadsafety.md) comprises benchmarks and tools for verification and validation of automated driving modules and full automated driving stacks, including scenario-based testing with [OpenADSim](./openadsim/openadsim.md).
 
-![OpenADS Overview](openads-overview.svg){align=center}
+![OpenADS Overview](assets/openads-diagram.svg){align=center}
 
 ## Projects
 
