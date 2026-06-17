@@ -57,7 +57,7 @@ else:
 }
 
 # Collect unique images from compose config
-mapfile -t IMAGES < <(docker compose -f "$COMPOSE_FILE" config --images | awk 'NF' | sort -u)
+mapfile -t IMAGES < <(docker compose -f "$COMPOSE_FILE" --profile "*" config --images | awk 'NF' | sort -u)
 
 if [[ ${#IMAGES[@]} -eq 0 ]]; then
 	echo "No images found in compose file: $COMPOSE_FILE"
