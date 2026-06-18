@@ -20,6 +20,12 @@ In practice, safety work in OpenADS spans three complementary questions:
 - **SOTIF:** Is the intended functionality itself sufficiently safe within the operational design domain, even if no fault is present?
 - **Cybersecurity:** Is the system protected against malicious misuse that could compromise safety or availability?
 
+## Safety Architecture
+
+![Safety Architecture Diagram](./architecture.drawio.svg)
+
+## Background
+
 :::{dropdown} Functional Safety (FuSa)
 
 [![](https://img.shields.io/badge/ISO-26262--3-green?logo=GitBook)](https://www.dinmedia.de/en/standard/iso-26262-3/300423934)
