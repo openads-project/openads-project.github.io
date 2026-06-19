@@ -16,6 +16,10 @@ Use the following channels depending on the type of request:
 - **Questions about contributing or development workflow:** Start with the guides in [OpenADSuite](../openadsuite/openadsuite.md), then open an issue if you are blocked.
 - **Sensitive or not-yet-public topics:** Contact the maintainers directly via [opensource@ika.rwth-aachen.de](mailto:opensource@ika.rwth-aachen.de).
 
+## MOOC: Automated and Connected Driving Challenges
+
+The free online course [RWTHx: Automated and Connected Driving Challenges (ACDC)](https://www.edx.org/learn/automation/rwth-aachen-university-automated-and-connected-driving-challenges) introduces participants to some of the latest research challenges and provides the possibility to develop and test automated and connected driving functions step by step. While the presented content does not match exactly what is used in OpenADS, most concepts and tools are quite similar.
+
 ## Contact
 
 OpenADS is currently being maintained by the *Institute for Automotive Engineering (ika)* at *RWTH Aachen University*. Feel free to [contact us](mailto:opensource@ika.rwth-aachen.de) for more information about the project, collaborations, or ecosystem activities.
