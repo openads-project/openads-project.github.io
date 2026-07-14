@@ -3,10 +3,12 @@
 ```{toctree}
 :maxdepth: 2
 :hidden:
+usage
+technical-architecture
+functional-architecture
+service-integration
 ```
 
 ```{include} ./overview.md
-:start-after: "# OpenAD**Stack**"
+:start-after: "# OpenADStack"
 ```
-
-TODO: add openadstack docs via CI and add subsections to toctree
