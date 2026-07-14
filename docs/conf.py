@@ -21,6 +21,7 @@ extensions = [
     'sphinx.ext.napoleon',
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
+    'sphinxcontrib.mermaid',
 ]
 
 templates_path = ['_templates']
@@ -33,6 +34,7 @@ myst_enable_extensions = [
     "html_image",
     "attrs_inline"
 ]
+myst_fence_as_directive = ["mermaid"]
 myst_heading_anchors = 3
 
 # -- Options for HTML output -------------------------------------------------
