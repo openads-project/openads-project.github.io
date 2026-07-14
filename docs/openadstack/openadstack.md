@@ -10,5 +10,5 @@ service-integration
 ```
 
 ```{include} ./overview.md
-:start-after: "# OpenADStack"
+:start-after: "# OpenAD**Stack**"
 ```

@@ -17,7 +17,7 @@ support/support.md
 
 The OpenADS project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
 
-- 🤖 [**OpenADStack**](./openadstack/openadstack.md) is a fully-functional open-source reference implementation of an Automated Driving System based on [ROS 2](https://www.ros.org/). It comprises perception, understanding, planning, and actuation modules, which are called [OpenADServices](https://github.com/search?q=topic%253Aopenadservice+org%253Aopenads-project).
+- 🤖 [**OpenADStack**](./openadstack/openadstack.md) is a fully-functional open-source reference implementation of an Automated Driving System based on [ROS 2](https://www.ros.org/). It comprises perception, understanding, planning, and actuation modules, which are called [OpenADServices](https://github.com/search?q=topic%3Aopenadservice&type=repositories).
 - 🎮 [**OpenADSim**](./openadsim/openadsim.md) supports multiple simulators for prototyping and testing, including [CARLA](https://carla.org/) for environment and vehicle simulation and [SUMO](https://eclipse.dev/sumo/) for urban traffic simulation.
 - 🛠️ [**OpenADSuite**](./openadsuite/openadsuite.md) provides development tools that streamline developer workflows, such as module templates and ready-to-use development environments.
 - 🛡️ [**OpenADSafety**](./openadsafety/openadsafety.md) comprises benchmarks and tools for verification and validation of automated driving modules and full automated driving stacks, including scenario-based testing with [OpenADSim](./openadsim/openadsim.md).
@@ -42,7 +42,7 @@ The vehicle is run by perception, understanding, planning and control modules fr
 
 [![autoSHUTTLE research vehicle](https://www.ika.rwth-aachen.de/images/pruefstaende/autoshuttle.webp){align=center}](https://www.youtube.com/watch?v=DCx0iTOmsMI){target="_blank"}
 
-The [autoSHUTTLE](https://www.ika.rwth-aachen.de/en/competences/equipment/research-vehicles/unicaragil-autoshuttle-en.html) was built up in the [UNICARagil project](https://www.unicaragil.de/en/) by a consortium of 16 universities and companies at ten locations in Germany. It was built completely from scratch demonstrating disruptive new architectures for geometry, electrics/electronics, software, and function especially targetting driverless vehicles.
+The [autoSHUTTLE](https://www.ika.rwth-aachen.de/en/competences/equipment/research-vehicles/unicaragil-autoshuttle-en.html) was built up in the [UNICARagil project](https://www.unicaragil.de/en/) by a consortium of 16 universities and companies at ten locations in Germany. It was built completely from scratch demonstrating disruptive new architectures for geometry, electrics/electronics, software, and function especially targetting driverless vehicles. In the [autotech.agil](https://www.autotechagil.de/en/) follow-up project, it was embedded into a cooperative and automated mobility system together with 9 other vehicles from different project partners.
 
 The vehicle is now operated by the [Institute for Automotive Engineering (ika)](https://www.ika.rwth-aachen.de/en/) of RWTH Aachen University and uses perception, understanding, planning and control modules from OpenADStack. It is also virtually integrated into OpenADSim.
 

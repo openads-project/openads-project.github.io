@@ -16,5 +16,5 @@ custom-integration
 ```
 
 ```{include} ./overview.md
-:start-after: "# OpenADSim"
+:start-after: "# OpenAD**Sim**"
 ```
