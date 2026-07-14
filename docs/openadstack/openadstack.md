@@ -4,8 +4,8 @@
 :maxdepth: 2
 :hidden:
 usage
-technical-architecture
 functional-architecture
+technical-architecture
 service-integration
 ```
 
