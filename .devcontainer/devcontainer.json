@@ -44,6 +44,14 @@
   "forwardPorts": [
     8000
   ],
+  "portsAttributes": {
+    "8000": {
+      "label": "Documentation server"
+    }
+  },
+  "appPort": [
+    "8000:8000"
+  ],
   "remoteUser": "vscode",
   "mounts": [
     "source=${localWorkspaceFolder}/.git,target=${containerWorkspaceFolder}/.git,type=bind,consistency=cached"
