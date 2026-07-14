@@ -32,7 +32,8 @@ myst_enable_extensions = [
     "colon_fence",
     "deflist",
     "html_image",
-    "attrs_inline"
+    "attrs_inline",
+    "alert"
 ]
 myst_fence_as_directive = ["mermaid"]
 myst_heading_anchors = 3
