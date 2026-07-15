@@ -25,7 +25,7 @@
 
 Clone the [OpenADStack](https://github.com/openads-project/openadstack) repository and start the provided docker composition. This will pull the required Docker images and run the stack on recorded sensor data.
 
-![OpenADStack Demo](./assets/openadstack-demo.png)
+![OpenADStack Demo](../openadstack/openadstack/docs/assets/teaser-openadstack.gif)
 
 ```bash
 git clone --recursive https://github.com/openads-project/openadstack.git
