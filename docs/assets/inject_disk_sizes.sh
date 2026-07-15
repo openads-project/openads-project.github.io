@@ -3,28 +3,23 @@
 set -euo pipefail
 
 if [[ $# -ne 3 ]]; then
-	echo "Usage: $0 <start-page> <openadstack-compose> <openadsim-compose>" >&2
+	echo "Usage: $0 <compose-file> <markdown-file> <variable-name>" >&2
 	exit 1
 fi
 
-START_PAGE="$1"
-OPENADSTACK_COMPOSE_FILE="$2"
-OPENADSIM_COMPOSE_FILE="$3"
+COMPOSE_FILE="$1"
+MARKDOWN_FILE="$2"
+VARIABLE_NAME="$3"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CALCULATE_SCRIPT="$SCRIPT_DIR/calculate_disk_size.sh"
 
-if [[ ! -f "$START_PAGE" ]]; then
-	echo "Error: start page not found: $START_PAGE" >&2
+if [[ ! -f "$COMPOSE_FILE" ]]; then
+	echo "Error: compose file not found: $COMPOSE_FILE" >&2
 	exit 1
 fi
 
-if [[ ! -f "$OPENADSTACK_COMPOSE_FILE" ]]; then
-	echo "Error: OpenADStack compose file not found: $OPENADSTACK_COMPOSE_FILE" >&2
-	exit 1
-fi
-
-if [[ ! -f "$OPENADSIM_COMPOSE_FILE" ]]; then
-	echo "Error: OpenADSim compose file not found: $OPENADSIM_COMPOSE_FILE" >&2
+if [[ ! -f "$MARKDOWN_FILE" ]]; then
+	echo "Error: markdown file not found: $MARKDOWN_FILE" >&2
 	exit 1
 fi
 
@@ -55,32 +50,17 @@ for unit in units:
 PY
 }
 
-resolve_size() {
-	local source="$1"
+disk_size="$(format_size "$(extract_bytes "$COMPOSE_FILE")")"
 
-	if [[ -f "$source" ]]; then
-		format_size "$(extract_bytes "$source")"
-		return
-	fi
-
-	if [[ "$source" == *.yml || "$source" == *.yaml ]]; then
-		echo "Error: compose file not found: $source" >&2
-		return 1
-	fi
-
-	printf '%s\n' "$source"
-}
-
-openadstack_size="$(format_size "$(extract_bytes "$OPENADSTACK_COMPOSE_FILE")")"
-openadsim_size="$(format_size "$(extract_bytes "$OPENADSIM_COMPOSE_FILE")")"
-
-python3 - "$START_PAGE" "$openadstack_size" "$openadsim_size" <<'PY'
+python3 - "$MARKDOWN_FILE" "$VARIABLE_NAME" "$disk_size" <<'PY'
 from pathlib import Path
 import sys
 
 path = Path(sys.argv[1])
+variable = sys.argv[2]
+value = sys.argv[3]
+
 text = path.read_text()
-text = text.replace("$DISK_SIZE_OPENADSTACK", sys.argv[2])
-text = text.replace("$DISK_SIZE_OPENADSIM", sys.argv[3])
+text = text.replace(f"${variable}", value)
 path.write_text(text)
 PY
