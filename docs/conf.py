@@ -38,6 +38,7 @@ exclude_patterns = [
     'openadsim/openadsim/utils/**',
     'openadstack/openadstack/README.md',
     'openadstack/openadstack/TODOs.md',
+    'openadstack/openadstack/demo/**',
     'openadstack/openadstack/utils/**',
 ]
 

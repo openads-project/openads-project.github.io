@@ -19,7 +19,8 @@
 - As some services (e.g. monitoring and simulation) may need graphical output, make sure to allow local connections to the X server to enable graphical output from Docker containers, e.g. by executing `xhost +local:` in a terminal.
 - The development environment is based on [Visual Studio Code](https://code.visualstudio.com/) with [Remote Development Extension Pack](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack).
 
-> ⚠️ Please [open an issue](https://github.com/openads-project/openads-project.github.io/issues/new/choose) and describe your setup and problems, if this quick start guide does not work for you.
+> [!IMPORTANT]
+> Please [open an issue](https://github.com/openads-project/openads-project.github.io/issues/new/choose) and describe your setup and problems, if this quick start guide does not work for you.
 
 ## Running OpenADStack on recorded data
 

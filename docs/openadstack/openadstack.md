@@ -8,7 +8,7 @@
 :hidden:
 openadstack/docs/usage
 openadstack/docs/functional-architecture
-openadstack/docs/technical-architecture
+openadstack/docs/integration-architecture
 openadstack/docs/service-integration
 ```
 
