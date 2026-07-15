@@ -41,16 +41,16 @@
     }
   },
   "postCreateCommand": "pip install --user -r docs/requirements.txt && pip install --user black pylint",
-  "forwardPorts": [
-    8000
-  ],
   "portsAttributes": {
     "8000": {
       "label": "Documentation server"
     }
   },
+  // Publish the documentation server on all host interfaces so it is
+  // reachable from other computers in the local network (requires the
+  // server inside the container to listen on 0.0.0.0, e.g. `python -m http.server`)
   "appPort": [
-    "8000:8000"
+    "0.0.0.0:8000:8000"
   ],
   "remoteUser": "vscode",
   "mounts": [
