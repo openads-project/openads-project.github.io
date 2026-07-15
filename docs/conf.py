@@ -25,7 +25,21 @@ extensions = [
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = [
+    '_build', 'Thumbs.db', '.DS_Store',
+    # Submodule files that are not part of the website.
+    # The READMEs are pulled into openadsim.md / openadstack.md via {include}
+    # and must not be built as standalone pages.
+    'openadsim/openadsim/README.md',
+    'openadsim/openadsim/carla-simulation/**',
+    'openadsim/openadsim/sumo-simulation/**',
+    'openadsim/openadsim/examples/**',
+    'openadsim/openadsim/openadstack/**',
+    'openadsim/openadsim/utils/**',
+    'openadstack/openadstack/README.md',
+    'openadstack/openadstack/TODOs.md',
+    'openadstack/openadstack/utils/**',
+]
 
 # MyST Parser configuration
 myst_enable_extensions = [

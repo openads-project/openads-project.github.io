@@ -2,19 +2,21 @@
 
 ```{div} align-center
 [![GitHub](https://img.shields.io/badge/GitHub-openads--project%2Fopenadsim-181717?logo=github)](https://github.com/openads-project/openadsim)
-
-```{toctree}
-:maxdepth: 2
-:hidden:
-usage
-architecture
-configuration
-example-scenario-testing
-example-cooperative-perception
-example-ml-planning
-custom-integration
 ```
 
-```{include} ./overview.md
+```{toctree}
+:hidden:
+openadsim/docs/usage
+openadsim/docs/architecture
+openadsim/docs/configuration
+openadsim/docs/example-scenario-testing
+openadsim/docs/example-cooperative-perception
+openadsim/docs/example-ml-planning
+openadsim/docs/custom-integration
+```
+
+```{include} ./openadsim/README.md
 :start-after: "# OpenAD**Sim**"
+:relative-docs: ./docs
+:relative-images:
 ```
