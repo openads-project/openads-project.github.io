@@ -1,0 +1,6 @@
+[submodule "docs/openadstack/openadstack"]
+	path = docs/openadstack/openadstack
+	url = git@github.com:openads-project/openadstack.git
+[submodule "docs/openadsim/openadsim"]
+	path = docs/openadsim/openadsim
+	url = git@gitlab.ika.rwth-aachen.de:fb-fi/its-compositions/simulation-platform.git
