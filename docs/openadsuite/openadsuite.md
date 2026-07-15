@@ -108,6 +108,7 @@ Want to add functionality that is not yet covered by an existing OpenADS module,
 
    `F1` &#8594; `Dev Containers: Rebuild and Reopen in Container`
 
+    > [!TIP]
     > If building the development image fails, for example with `ERROR: failed to build: failed to solve: error getting credentials`, pull the base image manually with `docker pull rwthika/ros2:jazzy`, ensure that your [Docker credentials helper](https://github.com/docker/docker-credential-helpers) is unlocked, and retry reopening the folder in the container.
 
 8. Visual Studio Code will automatically open the source code mounted from your locally cloned repository to `/docker-ros/ws/src/target` in the container.

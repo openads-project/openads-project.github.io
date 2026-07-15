@@ -35,30 +35,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
-      - name: Checkout openadstack repository
-        uses: actions/checkout@v4
-        with:
-          repository: openads-project/openadstack
-          path: _openadstack_tmp
-          token: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
-          lfs: true
-          ref: openadstack  # TODO: change to main
-
-      # - name: Copy openadstack docs into build tree
-      #   run: |
-      #     cp -r _openadstack_tmp/docs/. docs/openadstack/
-
-      # - name: Checkout openadsim repository
-      #   uses: actions/checkout@v4
-      #   with:
-      #     repository: openads-project/openadsim
-      #     path: _openadsim_tmp
-      #     token: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
-      #     lfs: true
-
-      # - name: Copy openadsim docs into build tree
-      #   run: |
-      #     cp -r _openadsim_tmp/docs/. docs/openadsim/
+      - name: Update submodules to latest state
+        env:
+          GH_TOKEN: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
+        run: |
+          # Authenticate all github.com access (git fetch + LFS) with the token
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+          # The runner cannot use the SSH/internal remotes from .gitmodules; use the GitHub repositories instead
+          git config submodule.docs/openadstack/openadstack.url "https://github.com/openads-project/openadstack.git"
+          git config submodule.docs/openadsim/openadsim.url "https://github.com/openads-project/openadsim.git"
+          # Check out the latest state of the tracked branches (default branch if none is configured in .gitmodules)
+          # instead of the pinned submodule commits; LFS content is fetched by the smudge filter during checkout
+          git submodule update --init --remote --depth 1 docs/openadstack/openadstack docs/openadsim/openadsim
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
@@ -70,9 +58,9 @@ jobs:
       # TODO: Add openadsim compose file once available
       # - name: Inject calculated disk sizes into docs
       #   run: |
-      #     bash docs/assets/inject_disk_sizes.sh _openadstack_tmp/demo/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSTACK
-      #     bash docs/assets/inject_disk_sizes.sh _openadstack_tmp/demo/docker-compose.perception.yml docs/start/start.md DISK_SIZE_PERCEPTION
-      #     # bash docs/assets/inject_disk_sizes.sh _openadsim_tmp/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSIM
+      #     bash docs/assets/inject_disk_sizes.sh docs/openadstack/openadstack/demo/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSTACK
+      #     bash docs/assets/inject_disk_sizes.sh docs/openadstack/openadstack/demo/docker-compose.perception.yml docs/start/start.md DISK_SIZE_PERCEPTION
+      #     # bash docs/assets/inject_disk_sizes.sh docs/openadsim/openadsim/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSIM
 
       - name: Build Sphinx documentation
         run: |
