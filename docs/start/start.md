@@ -39,7 +39,7 @@ The execution can be stopped with `docker compose down`. Chekout the [OpenADStac
 
 Clone the [OpenADSim](https://github.com/openads-project/openadsim) repository and start the provided docker composition. This will pull the required Docker images and run the stack in CARLA simulation.
 
-TODO: add screenshot
+![OpenADSim Demo](./assets/openadsim-demo.png)
 
 ```bash
 git clone --recursive https://github.com/openads-project/openadsim.git
@@ -47,4 +47,4 @@ cd openadsim
 docker compose up -d
 ```
 
-The execution can be stopped with `docker compose down`. Chekout the [OpenADSim](../openadsim/openadsim.md) section for more information.
+The execution can be stopped with `docker compose down`. Checkout the [OpenADSim](../openadsim/openadsim.md) section for more information.
