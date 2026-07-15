@@ -68,11 +68,11 @@ jobs:
           password: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
 
       # TODO: Add openadsim compose file once available
-      - name: Inject calculated disk sizes into docs
-        run: |
-          bash docs/assets/inject_disk_sizes.sh _openadstack_tmp/demo/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSTACK
-          bash docs/assets/inject_disk_sizes.sh _openadstack_tmp/demo/docker-compose.perception.yml docs/start/start.md DISK_SIZE_PERCEPTION
-          # bash docs/assets/inject_disk_sizes.sh _openadsim_tmp/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSIM
+      # - name: Inject calculated disk sizes into docs
+      #   run: |
+      #     bash docs/assets/inject_disk_sizes.sh _openadstack_tmp/demo/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSTACK
+      #     bash docs/assets/inject_disk_sizes.sh _openadstack_tmp/demo/docker-compose.perception.yml docs/start/start.md DISK_SIZE_PERCEPTION
+      #     # bash docs/assets/inject_disk_sizes.sh _openadsim_tmp/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSIM
 
       - name: Build Sphinx documentation
         run: |
