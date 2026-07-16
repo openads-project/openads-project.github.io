@@ -33,6 +33,7 @@ OpenADS is used in multiple real implementations, including research vehicles of
 #### karl. | Research Vehicle for Automated and Connected Driving
 
 [![karl. research vehicle](https://www.ika.rwth-aachen.de/images/pruefstaende/karl/2025-05-30_karl.jpg){align=center}](https://www.youtube.com/watch?v=iiaNbFkfEA0){target="_blank"}
+_Click on the image for a video demonstration_
 
 [karl.](https://www.ika.rwth-aachen.de/en/competences/equipment/research-vehicles/karl-en.html) is a customizable and extensible research platform designed for developing and validating innovative functions for automated and connected driving by the [Institute for Automotive Engineering (ika)](https://www.ika.rwth-aachen.de/en/) of RWTH Aachen University.
 
@@ -41,6 +42,7 @@ The vehicle is run by perception, understanding, planning and control modules fr
 #### autoSHUTTLE | Demonstrating the future of urban transportation
 
 [![autoSHUTTLE research vehicle](https://www.ika.rwth-aachen.de/images/pruefstaende/autoshuttle.webp){align=center}](https://www.youtube.com/watch?v=DCx0iTOmsMI){target="_blank"}
+_Click on the image for a video demonstration_
 
 The [autoSHUTTLE](https://www.ika.rwth-aachen.de/en/competences/equipment/research-vehicles/unicaragil-autoshuttle-en.html) was built up in the [UNICARagil project](https://www.unicaragil.de/en/) by a consortium of 16 universities and companies at ten locations in Germany. It was built completely from scratch demonstrating disruptive new architectures for geometry, electrics/electronics, software, and function especially targetting driverless vehicles. In the [autotech.agil](https://www.autotechagil.de/en/) follow-up project, it was embedded into a cooperative and automated mobility system together with 9 other vehicles from different project partners.
 
@@ -50,7 +52,7 @@ The vehicle is now operated by the [Institute for Automotive Engineering (ika)](
 
 #### RITA | Road Infrastructure Testfield Aachen
 
-*![Road Infrastructure Testfield Aachen](https://www.ika.rwth-aachen.de/images/pruefstaende/rita-sinnbild.webp){align=center}*
+![Road Infrastructure Testfield Aachen](https://www.ika.rwth-aachen.de/images/pruefstaende/rita-sinnbild.webp){align=center}
 
 [RITA](https://www.ika.rwth-aachen.de/en/competences/equipment/infrastructure/roadside-infrastructure.html) is an infrastructure testfield at Campus Melaten in Aachen, Germany, operated by the [Institute for Automotive Engineering (ika)](https://www.ika.rwth-aachen.de/en/) of RWTH Aachen University. It supplys highly accurate real-time reference data from road users for connected and automated vehicles and uses perception modules from OpenADStack. It is also virtually represented in OpenADSim.
 
