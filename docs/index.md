@@ -80,6 +80,16 @@ OpenADS has been developed and used in several national and international projec
 
 :::{grid-item-card}
 :class-card: sd-text-center
+[![6GEM+ Logo](./assets/logo-6gemplus.png)](https://6gem.de/en/)
+:::
+
+:::{grid-item-card}
+:class-card: sd-text-center
+[![4CAD Logo](./assets/logo-4cad.png)](https://www.ika.rwth-aachen.de/en/competences/projects/automated-driving/4-cad-en.html)
+:::
+
+:::{grid-item-card}
+:class-card: sd-text-center
 [![AIthena Logo](./assets/logo-aithena.png)](https://aithena.eu/)
 :::
 
