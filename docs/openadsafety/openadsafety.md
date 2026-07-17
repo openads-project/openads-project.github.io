@@ -10,21 +10,25 @@
 benchmarks
 ```
 
-The goal of OpenADS is to provide a complete toolchain and reference implementation that can become the basis for a commercialized, safety-certified level 4 automated driving system. This involves technical, process-related, and regulatory requirements regarding system safety and security as specified, for example, by the German [AFGBV regulation](https://www.gesetze-im-internet.de/afgbv/BJNR098610022.html) (*Autonome-Fahrzeuge-Genehmigungs-und-Betriebs-Verordnung* / *Regulations on the Approval and Operation of Autonomous Vehicles*).
+The goal of OpenADS is to provide a complete toolchain and reference implementation that can become the basis for a commercialized, safety-certified level 4 automated driving system. This involves technical, process-related, and regulatory requirements regarding system safety and security as specified, for example, as outlined by [UNECE/TRANS/WP.29/2026/139](https://unece.org/sites/default/files/2026-06/ECE-TRANS-WP.29-2026-139e.pdf).
 
 OpenADS itself is not a certified product out of the box. Instead, it aims to provide reusable modules, reproducible development environments, traceable interfaces, simulation scenarios, and automated validation pipelines that can contribute evidence to a later approval and certification process.
 
-In practice, safety work in OpenADS spans three complementary questions:
+<!--In practice, safety work in OpenADS spans three complementary questions:
 
 - **Functional safety:** Are faults in hardware or software handled so that unreasonable risk is avoided?
 - **SOTIF:** Is the intended functionality itself sufficiently safe within the operational design domain, even if no fault is present?
-- **Cybersecurity:** Is the system protected against malicious misuse that could compromise safety or availability?
+- **Cybersecurity:** Is the system protected against malicious misuse that could compromise safety or availability?-->
 
 ## Safety Architecture
 
 ![Safety Architecture Diagram](./architecture.drawio.svg)
 
+Note: This figure is derived from UNECE/TRANS/WP.29/2026/139. It is modified and extended.
+
 ## Background
+
+Many relevant norms, standards and literature have been published to build a viable safety case. Following, a few relevant elements are outlined. However, this should by no means be considered a complete list.
 
 :::{dropdown} Functional Safety (FuSa)
 
