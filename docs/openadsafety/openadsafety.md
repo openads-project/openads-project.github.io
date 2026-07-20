@@ -26,9 +26,9 @@ OpenADS itself is not a certified product out of the box. Instead, it aims to pr
 
 Note: This figure is derived from UNECE/TRANS/WP.29/2026/139. It is modified and extended.
 
-## Background
+## Cross topics
 
-Many relevant norms, standards and literature have been published to build a viable safety case. Following, a few relevant elements are outlined. However, this should by no means be considered a complete list.
+Many relevant norms, standards and literature have been published to build a viable safety case. These do not necessarily fit into one builing block, so that they are described as cross topics. Following, a few relevant elements are outlined. However, this should by no means be considered a complete list.
 
 :::{dropdown} Functional Safety (FuSa)
 
@@ -93,6 +93,7 @@ Typical SOTIF questions for OpenADS-based systems include:
 - Which edge cases are known and accepted, and which still require mitigation or ODD restriction?
 - How are unknown unsafe scenarios discovered, reproduced, and regressed over time?
 
+<!--
 ### Safety Argumentation
 
 Structured safety argumentation is required to connect claims about system safety with assumptions, context, requirements, and evidence. Goal Structuring Notation (GSN) is a common way to make these relationships explicit.
@@ -111,24 +112,5 @@ This is where CI pipelines, scenario catalogs, benchmark histories, and architec
 Module benchmarks can provide evidence supporting the safety argumentation. They are most useful when they are tied to concrete safety questions, representative scenarios, and explicit pass or warning thresholds.
 
 More details on benchmark design, traceability, and interpretation are collected in the dedicated [Benchmarks](./benchmarks.md) page.
-
-:::
-
-:::{dropdown} Cybersecurity
-
-[![](https://img.shields.io/badge/UN_ECE-R_155-green?logo=GitBook)](https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security)
-
-> ❓ *Can the system be manipulated in a way that compromises safety?*
-
-The system's cybersecurity shall be guaranteed according to [UN Regulation No. 155](https://unece.org/transport/documents/2021/03/standards/un-regulation-no-155-cyber-security-and-cyber-security). In practice, this means that safety arguments for OpenADS cannot ignore malicious behavior, compromised dependencies, insecure interfaces, or operational misuse.
-
-Relevant cybersecurity topics for OpenADS include:
-
-- Threat analysis and risk assessment for exposed interfaces such as developer tooling, container registries, middleware transport, remote access, and data pipelines.
-- Secure software supply chains, including dependency tracking, image provenance, vulnerability management, and access control.
-- Operational protection measures such as least-privilege deployment, logging, monitoring, secret handling, and incident response.
-- Interaction between cybersecurity incidents and safety mechanisms, for example denial of service, spoofed data, or unauthorized actuation paths.
-
-Because OpenADS is heavily based on modular repositories, container images, and CI/CD, cybersecurity engineering should be treated as a first-class systems concern rather than an afterthought. Secure defaults in development infrastructure can directly reduce the effort needed later for regulatory approval and field deployment.
-
+-->
 :::
