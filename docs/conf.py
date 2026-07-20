@@ -3,6 +3,12 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
+import os
+import sys
+
+# Local Sphinx extensions live in _ext/
+sys.path.insert(0, os.path.abspath('_ext'))
+
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
@@ -22,6 +28,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.intersphinx',
     'sphinxcontrib.mermaid',
+    'svg_viewer',  # local: inlines SVGs so their links work, adds zoom/pan
 ]
 
 templates_path = ['_templates']

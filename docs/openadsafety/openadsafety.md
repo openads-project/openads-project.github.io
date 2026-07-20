@@ -21,7 +21,9 @@ OpenADS itself is not a certified product out of the box. Instead, it aims to pr
 
 ## Safety Architecture
 
-![Safety Architecture Diagram](./architecture.drawio.svg)
+```{svg-viewer} ./architecture.drawio.svg
+:alt: Safety Architecture Diagram
+```
 
 > [!NOTE]
 > This figure is derived from [UNECE/TRANS/WP.29/2026/139](https://unece.org/sites/default/files/2026-06/ECE-TRANS-WP.29-2026-139e.pdf). It is modified and extended.
