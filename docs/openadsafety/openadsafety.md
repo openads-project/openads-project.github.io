@@ -5,9 +5,8 @@
 ```
 
 ```{toctree}
-:maxdepth: 2
 :hidden:
-benchmarks
+components/ads.md
 ```
 
 The goal of OpenADS is to provide a complete toolchain and reference implementation that can become the basis for a commercialized, safety-certified level 4 automated driving system. This involves technical, process-related, and regulatory requirements regarding system safety and security as specified, for example, as outlined by [UNECE/TRANS/WP.29/2026/139](https://unece.org/sites/default/files/2026-06/ECE-TRANS-WP.29-2026-139e.pdf).
@@ -24,9 +23,10 @@ OpenADS itself is not a certified product out of the box. Instead, it aims to pr
 
 ![Safety Architecture Diagram](./architecture.drawio.svg)
 
-Note: This figure is derived from UNECE/TRANS/WP.29/2026/139. It is modified and extended.
+> [!NOTE]
+> This figure is derived from [UNECE/TRANS/WP.29/2026/139](https://unece.org/sites/default/files/2026-06/ECE-TRANS-WP.29-2026-139e.pdf). It is modified and extended.
 
-## Cross topics
+## Cross Topics
 
 Many relevant norms, standards and literature have been published to build a viable safety case. These do not necessarily fit into one builing block, so that they are described as cross topics. Following, a few relevant elements are outlined. However, this should by no means be considered a complete list.
 
