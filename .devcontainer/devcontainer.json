@@ -18,7 +18,8 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "trond-snekvik.simple-rst",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "anthropics.claude-code"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
@@ -54,6 +55,7 @@
   ],
   "remoteUser": "vscode",
   "mounts": [
-    "source=${localWorkspaceFolder}/.git,target=${containerWorkspaceFolder}/.git,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/.git,target=${containerWorkspaceFolder}/.git,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind"
   ]
 }
