@@ -10,6 +10,7 @@ components/ads.md
 components/simulation.md
 components/scenario-generation.md
 components/dataspace.md
+other/cybersecurity.md
 ```
 
 The goal of OpenADS is to provide a complete toolchain and reference implementation that can become the basis for a commercialized, safety-certified level 4 automated driving system. This involves technical, process-related, and regulatory requirements regarding system safety and security as specified, for example, as outlined by [UNECE/TRANS/WP.29/2026/139](https://unece.org/sites/default/files/2026-06/ECE-TRANS-WP.29-2026-139e.pdf).
