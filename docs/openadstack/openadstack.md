@@ -6,10 +6,10 @@
 
 ```{toctree}
 :hidden:
-openadstack/docs/usage
+openadstack/docs/getting-started
 openadstack/docs/functional-architecture
 openadstack/docs/integration-architecture
-openadstack/docs/service-integration
+openadstack/docs/deployment-composition
 ```
 
 ```{include} ./openadstack/README.md

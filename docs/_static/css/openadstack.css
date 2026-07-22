@@ -1,0 +1,11 @@
+/* Keep the OpenADStack architecture tables aligned while retaining
+   GitHub-flavored Markdown tables in the source documentation. */
+#functional-architecture table.table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+#functional-architecture table.table th:first-child,
+#functional-architecture table.table td:first-child {
+  width: 35%;
+}
