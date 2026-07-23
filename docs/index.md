@@ -13,7 +13,9 @@ openadsafety/openadsafety
 support/support.md
 ```
 
-![OpenADS Logo](./assets/openads.png){align=center width=300px}
+[![Watch OpenADStack in karl.](./assets/teaser-openads.gif){align=center width=500px}](https://www.youtube.com/watch?v=XR2uBMVX1As){target=_blank}
+
+**TODO: YouTube-Video-Link nach Upload durch PR austauschen**
 
 The OpenADS project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
 
