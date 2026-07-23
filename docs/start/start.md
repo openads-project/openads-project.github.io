@@ -27,21 +27,35 @@
 
 Clone the [OpenADStack](https://github.com/openads-project/openadstack) repository and start the provided docker composition. This will pull the required Docker images and run the stack on recorded sensor data.
 
-![OpenADStack Demo](../openadstack/openadstack/docs/assets/teaser-openadstack.gif)
+![OpenADStack Demo](./assets/teaser-openadstack.gif){align=center width=500}
+
+- **Basic Demo without Perception:** Start the open-loop demo using recorded detections:
 
 ```bash
 git clone --recursive https://github.com/openads-project/openadstack.git
-cd openadstack
+    cd openadstack/demo
 docker compose up -d
 ```
 
-The execution can be stopped with `docker compose down`. Chekout the [OpenADStack](../openadstack/openadstack.md) section for more information.
+  - **Full Demo:** Start the open-loop demo including perception OpenADServices running on recorded raw sensor data:
+
+    ```bash
+    export COMPOSE_FILE=docker-compose.demo-full.yml && docker compose up -d
+    ```
+
+- **Stop** the demo with:
+
+  ```bash
+  docker compose down
+  ```
+
+Chekout the [OpenADStack](../openadstack/openadstack.md) section for more information.
 
 ## Running OpenADSim for closed-loop simulation
 
 Clone the [OpenADSim](https://github.com/openads-project/openadsim) repository and start the provided docker composition. This will pull the required Docker images and run the stack in CARLA simulation.
 
-![OpenADSim Demo](./assets/teaser-openadsim.gif)
+![OpenADSim Demo](./assets/teaser-openadsim.gif){align=center width=500}
 
 ```bash
 git clone --recursive https://github.com/openads-project/openadsim.git
