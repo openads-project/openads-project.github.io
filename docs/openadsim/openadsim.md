@@ -1,10 +1,14 @@
 # 🎮 OpenADSim
 
+```{note}
+🚧 This section is currently under construction.
+```
+
 ```{div} align-center
 [![GitHub](https://img.shields.io/badge/GitHub-openads--project%2Fopenadsim-181717?logo=github)](https://github.com/openads-project/openadsim)
 ```
 
-```{toctree}
+<!-- ```{toctree}
 :hidden:
 openadsim/docs/usage
 openadsim/docs/architecture
@@ -19,4 +23,4 @@ openadsim/docs/custom-integration
 :start-after: "# OpenAD**Sim**"
 :relative-docs: ./docs
 :relative-images:
-```
+``` -->
