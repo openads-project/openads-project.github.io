@@ -321,6 +321,49 @@ while IFS= read -r image; do
 	fi
 done <<< "$image_output"
 
+# Optionally narrow the discovered image set. Callers may set INCLUDE_ONLY_IMAGES
+# and/or EXCLUDE_IMAGES to comma- or newline-separated image references; tags and
+# digests are ignored when matching, so pinned versions do not need to be tracked
+# here.
+repository_of() {
+	local ref="${1%@*}"        # drop any @sha256:... digest
+	local name="${ref##*/}"    # keep an eventual registry:port intact
+	if [[ "$name" == *:* ]]; then
+		ref="${ref%:*}"        # drop the :tag
+	fi
+	printf '%s' "$ref"
+}
+
+repository_in_list() {
+	local target="$1"
+	local list="${2//,/$'\n'}"
+	local entry
+	while IFS= read -r entry; do
+		entry="${entry#"${entry%%[![:space:]]*}"}"  # trim leading whitespace
+		entry="${entry%"${entry##*[![:space:]]}"}"  # trim trailing whitespace
+		[[ -z "$entry" ]] && continue
+		if [[ "$(repository_of "$entry")" == "$target" ]]; then
+			return 0
+		fi
+	done <<< "$list"
+	return 1
+}
+
+if [[ -n "${INCLUDE_ONLY_IMAGES:-}" || -n "${EXCLUDE_IMAGES:-}" ]]; then
+	filtered_images=()
+	for image in "${IMAGES[@]}"; do
+		repository="$(repository_of "$image")"
+		if [[ -n "${INCLUDE_ONLY_IMAGES:-}" ]] && ! repository_in_list "$repository" "$INCLUDE_ONLY_IMAGES"; then
+			continue
+		fi
+		if [[ -n "${EXCLUDE_IMAGES:-}" ]] && repository_in_list "$repository" "$EXCLUDE_IMAGES"; then
+			continue
+		fi
+		filtered_images+=("$image")
+	done
+	IMAGES=("${filtered_images[@]+"${filtered_images[@]}"}")
+fi
+
 if [[ ${#IMAGES[@]} -eq 0 ]]; then
 	echo "No images found in compose file: $COMPOSE_FILE"
 	exit 0

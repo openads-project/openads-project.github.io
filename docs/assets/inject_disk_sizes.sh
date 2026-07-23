@@ -13,6 +13,12 @@ VARIABLE_NAME="$3"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CALCULATE_SCRIPT="$SCRIPT_DIR/calculate_disk_size.sh"
 
+# The demo-data image is reported on its own and excluded from the requested
+# variable's total whenever it is part of the given compose file. Matched by
+# repository, so the pinned tag does not need to be tracked here.
+DEMO_DATA_IMAGE="ghcr.io/openads-project/openadstack/demo-data"
+DEMO_DATA_VARIABLE="DISK_SIZE_DEMODATA"
+
 if [[ ! -f "$COMPOSE_FILE" ]]; then
 	echo "Error: compose file not found: $COMPOSE_FILE" >&2
 	exit 1
@@ -24,7 +30,12 @@ if [[ ! -f "$MARKDOWN_FILE" ]]; then
 fi
 
 extract_bytes() {
-	bash "$CALCULATE_SCRIPT" "$1" | awk -F': ' '/Total size \(bytes\)/ {print $2}'
+	local compose_file="$1"
+	local exclude="${2:-}"
+	local only="${3:-}"
+	env EXCLUDE_IMAGES="$exclude" INCLUDE_ONLY_IMAGES="$only" \
+		bash "$CALCULATE_SCRIPT" "$compose_file" \
+		| awk -F': ' '/Total size \(bytes\)/ {print $2}'
 }
 
 format_size() {
@@ -50,9 +61,8 @@ for unit in units:
 PY
 }
 
-disk_size="$(format_size "$(extract_bytes "$COMPOSE_FILE")")"
-
-python3 - "$MARKDOWN_FILE" "$VARIABLE_NAME" "$disk_size" <<'PY'
+inject_variable() {
+	python3 - "$MARKDOWN_FILE" "$1" "$2" <<'PY'
 from pathlib import Path
 import sys
 
@@ -64,3 +74,19 @@ text = path.read_text()
 text = text.replace(f"${variable}", value)
 path.write_text(text)
 PY
+}
+
+# Size of the demo-data image on its own (empty when it is not part of this
+# compose file).
+demodata_bytes="$(extract_bytes "$COMPOSE_FILE" "" "$DEMO_DATA_IMAGE")"
+
+if [[ -n "$demodata_bytes" ]]; then
+	# Exclude the demo-data image from the requested variable's total and report
+	# its size separately.
+	main_bytes="$(extract_bytes "$COMPOSE_FILE" "$DEMO_DATA_IMAGE" "")"
+	inject_variable "$DEMO_DATA_VARIABLE" "$(format_size "$demodata_bytes")"
+else
+	main_bytes="$(extract_bytes "$COMPOSE_FILE")"
+fi
+
+inject_variable "$VARIABLE_NAME" "$(format_size "$main_bytes")"
