@@ -49,7 +49,7 @@ jobs:
           git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
           # Check out the latest state of the tracked branches (default branch if none is configured in .gitmodules)
           # instead of the pinned submodule commits; LFS content is fetched by the smudge filter during checkout
-          git submodule update --init --remote --depth 1 docs/openadstack/openadstack docs/openadsim/openadsim
+          git submodule update --init --recursive
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v3
