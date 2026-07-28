@@ -38,10 +38,10 @@ Clone the [OpenADStack](https://github.com/openads-project/openadstack) reposito
     docker compose up -d
     ```
 
-  - **Full Demo:** Start the open-loop demo including perception OpenADServices running on recorded raw sensor data:
+  - **Extended Demo:** Start the open-loop demo including perception OpenADServices running on recorded raw sensor data:
 
     ```bash
-    export COMPOSE_FILE=docker-compose.demo-full.yml && docker compose up -d
+    export COMPOSE_PROFILES=demo-extended && docker compose up -d
     ```
 
 - **Stop** the demo with:
