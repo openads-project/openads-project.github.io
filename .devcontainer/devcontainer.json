@@ -1,12 +1,12 @@
 {
   "name": "Open Automated Driving Systems - Documentation",
-  "image": "mcr.microsoft.com/devcontainers/python:3.11",
-  
+  "image": "mcr.microsoft.com/devcontainers/python:3.13-trixie",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {},
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/git-lfs:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:3": {"moby": false},
   },
-
   "customizations": {
     "vscode": {
       "extensions": [
@@ -18,7 +18,8 @@
         "ms-python.python",
         "ms-python.vscode-pylance",
         "trond-snekvik.simple-rst",
-        "yzhang.markdown-all-in-one"
+        "yzhang.markdown-all-in-one",
+        "anthropics.claude-code"
       ],
       "settings": {
         "python.defaultInterpreterPath": "/usr/local/bin/python",
@@ -26,7 +27,6 @@
         "python.linting.pylintEnabled": true,
         "python.formatting.provider": "black",
         "editor.formatOnSave": true,
-        "editor.rulers": [88],
         "files.associations": {
           "*.md": "markdown"
         },
@@ -41,14 +41,21 @@
       }
     }
   },
-
   "postCreateCommand": "pip install --user -r docs/requirements.txt && pip install --user black pylint",
-
-  "forwardPorts": [8000],
-
+  "portsAttributes": {
+    "8000": {
+      "label": "Documentation server"
+    }
+  },
+  // Publish the documentation server on all host interfaces so it is
+  // reachable from other computers in the local network (requires the
+  // server inside the container to listen on 0.0.0.0, e.g. `python -m http.server`)
+  "appPort": [
+    "0.0.0.0:8000:8000"
+  ],
   "remoteUser": "vscode",
-
   "mounts": [
-    "source=${localWorkspaceFolder}/.git,target=${containerWorkspaceFolder}/.git,type=bind,consistency=cached"
+    "source=${localWorkspaceFolder}/.git,target=${containerWorkspaceFolder}/.git,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.claude,target=/home/vscode/.claude,type=bind"
   ]
 }
