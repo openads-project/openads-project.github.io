@@ -1,0 +1,87 @@
+name: Build and Deploy Sphinx Documentation
+
+on:
+  push:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  packages: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          cache-dependency-path: 'docs/requirements.txt'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r docs/requirements.txt
+
+      - name: Update submodules to latest state
+        env:
+          GH_TOKEN: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
+          GITLAB_OPENADSIM_TOKEN: ${{ secrets.GITLAB_OPENADSIM_TOKEN }}
+        run: |
+          # Authenticate all github.com access (git fetch + LFS) with the token
+          git config --global url."https://x-access-token:${GH_TOKEN}@github.com/".insteadOf "https://github.com/"
+          # Authenticate GitLab access without exposing the token in the submodule URL
+          git config --global url."https://oauth2:${GITLAB_OPENADSIM_TOKEN}@gitlab.ika.rwth-aachen.de/".insteadOf "https://gitlab.ika.rwth-aachen.de/"
+          # The runner cannot use the SSH/internal remotes from .gitmodules; use HTTPS repositories instead
+          git config submodule.docs/openadstack/openadstack.url "https://github.com/openads-project/openadstack.git"
+          git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
+          # Check out the latest state of the tracked branches (default branch if none is configured in .gitmodules)
+          # instead of the pinned submodule commits; LFS content is fetched by the smudge filter during checkout
+          git submodule update --init
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
+
+      # - name: Inject calculated disk sizes into docs
+      #   run: |
+      #     bash docs/assets/inject_disk_sizes.sh docs/openadstack/openadstack/demo/docker-compose.demo.yml docs/start/start.md DISK_SIZE_OPENADSTACK
+      #     bash docs/assets/inject_disk_sizes.sh docs/openadstack/openadstack/demo/docker-compose.demo-full.yml docs/start/start.md DISK_SIZE_PERCEPTION
+      #     bash docs/assets/inject_disk_sizes.sh docs/openadsim/openadsim/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSIM
+
+      - name: Build Sphinx documentation
+        run: |
+          cd docs
+          sphinx-build -b html . _build/html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'docs/_build/html'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

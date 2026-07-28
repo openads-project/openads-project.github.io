@@ -16,7 +16,7 @@ The development container includes:
 - **Python 3.11** with all documentation dependencies pre-installed
 - **VS Code extensions** for Python, Markdown, reStructuredText, and DrawIO
 - **Git** and **GitHub CLI** for version control
-- **Port forwarding** for local documentation server (port 8000)
+- **Port publishing** for the local documentation server (port 8000), reachable from other computers on the local network
 
 ## Building Documentation
 
@@ -37,3 +37,8 @@ python -m http.server 8000 --directory _build/html
 ```
 
 Then open http://localhost:8000 in your browser.
+
+The server is published on the host with `appPort`, so it is also reachable
+from other computers on the same local network at `http://<host-ip>:8000`
+(find the host's IP with `ip addr` / `ipconfig`). `python -m http.server`
+already binds to all interfaces by default, so no extra flags are needed.

@@ -1,8 +1,6 @@
 # Open Automated Driving Systems - Documentation
 
-> This project is currently under construction
-
-The full documentation is available at [GitHub Pages](https://openads.github.io).
+The full documentation is available via [GitHub Pages](https://openads-project.github.io/).
 
 ## Local Development
 
