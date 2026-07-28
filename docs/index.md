@@ -52,7 +52,7 @@ The vehicle is now operated by the [Institute for Automotive Engineering (ika)](
 
 #### RITA | Road Infrastructure Testfield Aachen
 
-![Road Infrastructure Testfield Aachen](./assets/integration-rita.png){align=center}
+![Roadside Infrastructure Testfield Aachen](./assets/integration-rita.png){align=center}
 
 [RITA](https://www.ika.rwth-aachen.de/en/competences/equipment/infrastructure/roadside-infrastructure.html) is an infrastructure testfield at Campus Melaten in Aachen, Germany, operated by the [Institute for Automotive Engineering (ika)](https://www.ika.rwth-aachen.de/en/) of RWTH Aachen University. It supplys highly accurate real-time reference data from road users for connected and automated vehicles and uses perception modules from OpenADStack. It is also virtually represented in OpenADSim.
 
