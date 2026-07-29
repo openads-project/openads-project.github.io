@@ -8,10 +8,10 @@
 ## Requirements
 
 - The disk space required for pulling all necessary Docker images is:
-  - **16.0 GiB** for the *OpenADStack* images without perception modules,
-  - **23.2 GiB** for the *OpenADStack* images **with perception modules**,
-    - **19.0 GiB** for the *OpenADStack* demo data (for open-loop testing only),
-  - **45.9 GiB** for the whole toolchain including *OpenADSim* with *OpenADStack*.
+  - **$DISK_SIZE_OPENADSTACK** for the *OpenADStack* images without perception modules,
+  - **$DISK_SIZE_PERCEPTION** for the *OpenADStack* images **with perception modules**,
+    - **$DISK_SIZE_DEMODATA** for the *OpenADStack* demo data (for open-loop testing only),
+  - **$DISK_SIZE_OPENADSIM** for the whole toolchain including *OpenADSim* with *OpenADStack*.
 - While some modules are built for `arm64` architectures (e.g. used in *NVIDIA Jetson Orin*), the complete toolchain is only supported on `amd64`.
 - Thanks to consequent containerization, most Linux operating systems supporting [Docker](https://www.docker.com/) should be fine. However, we currently test only on `Ubuntu 24.04`.
   - To use OpenADS on remote machines (e.g. via SSH), we recommend using [TurboVNC](https://turbovnc.org/) for graphical output.
