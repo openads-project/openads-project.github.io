@@ -45,9 +45,11 @@ jobs:
           # The runner cannot use the SSH/internal remotes from .gitmodules; use HTTPS repositories instead
           git config submodule.docs/openadstack/openadstack.url "https://github.com/openads-project/openadstack.git"
           git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
-          # Check out the latest state of the tracked branches (default branch if none is configured in .gitmodules)
-          # instead of the pinned submodule commits; LFS content is fetched by the smudge filter during checkout
-          git submodule update --init
+          # Recurse so the openadstack repository nested inside openadsim is checked out too; without it
+          # openadsim's compose files cannot be resolved and the disk-size calculation fails. The nested
+          # module pins no branch, so keep the pinned commit (no --remote) to get the expected layout.
+          # LFS content is fetched by the smudge filter during checkout.
+          git submodule update --init --recursive
 
       - name: Inject calculated disk sizes into docs
         run: |
