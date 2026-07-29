@@ -13,7 +13,12 @@ openadsafety/openadsafety
 support/support.md
 ```
 
-[![Watch OpenADStack in karl.](./assets/teaser-openads.gif){align=center width=500px}](https://www.youtube.com/watch?v=B0Lnu-1w9KE){target=_blank}
+<div align="center">
+  <video controls autoplay width="720" src="https://github.com/user-attachments/assets/f20c3a3a-51e3-493e-8ad7-19a7b4168764"></video>
+  <br>
+  <em>Watch the OpenADStack in action above or <a target="_blank" href="https://www.youtube.com/watch?v=B0Lnu-1w9KE">open the full video on YouTube</a>.</em>
+</div>
+<br/>
 
 The OpenADS project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
 
