@@ -3,6 +3,19 @@ name: Build and Deploy Sphinx Documentation
 on:
   push:
   workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy to GitHub Pages after building'
+        type: boolean
+        default: true
+      openadstack_ref:
+        description: 'openadstack branch to check out for its submodule (blank = the branch tracked in .gitmodules)'
+        type: string
+        default: ''
+      openadsim_ref:
+        description: 'openadsim branch to check out for its submodule (blank = the branch tracked in .gitmodules)'
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -38,13 +51,31 @@ jobs:
       - name: Update submodules to latest state
         env:
           GITLAB_OPENADSIM_TOKEN: ${{ secrets.GITLAB_OPENADSIM_TOKEN }}
+          OPENADSTACK_REF: ${{ inputs.openadstack_ref }}
+          OPENADSIM_REF: ${{ inputs.openadsim_ref }}
         run: |
           # Authenticate GitLab access without exposing the token in the submodule URL
           git config --global url."https://oauth2:${GITLAB_OPENADSIM_TOKEN}@gitlab.ika.rwth-aachen.de/".insteadOf "https://gitlab.ika.rwth-aachen.de/"
           # The runner cannot use the SSH/internal remotes from .gitmodules; use HTTPS repositories instead
           git config submodule.docs/openadstack/openadstack.url "https://github.com/openads-project/openadstack.git"
           git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
+          # When dispatched for a specific submodule branch (e.g. by a repo's trigger workflow), track that
+          # branch for the submodule so the docs are built from the branch that triggered this run.
+          if [ -n "${OPENADSTACK_REF}" ]; then
+            git config submodule.docs/openadstack/openadstack.branch "${OPENADSTACK_REF}"
+          fi
+          if [ -n "${OPENADSIM_REF}" ]; then
+            git config submodule.docs/openadsim/openadsim.branch "${OPENADSIM_REF}"
+          fi
           git submodule update --init --recursive
+
+      - name: Ensure submodules are up to date
+        run: |
+          # Advance the top-level submodules to the tip of their tracked branches (set in .gitmodules) so the
+          # docs are built against current openadstack/openadsim content.
+          git submodule update --remote
+          # Re-check out openadsim's nested submodule at the commit pinned by its now-updated tree.
+          git -C docs/openadsim/openadsim submodule update --init --recursive
 
       - name: Inject calculated disk sizes into docs
         run: |
@@ -54,8 +85,14 @@ jobs:
 
       - name: Build Sphinx documentation
         run: |
+          set -eo pipefail
           cd docs
-          sphinx-build -b html . _build/html
+          # Build the docs, echoing the output while also capturing it, then fail if Sphinx emitted a warning.
+          sphinx-build -b html . _build/html 2>&1 | tee build.log
+          if grep -q "WARNING:" build.log; then
+            echo "::error::Sphinx build produced warnings (see the log above)."
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
@@ -68,7 +105,11 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/main'
+    # Deploy on direct pushes to main, or when a workflow_dispatch (e.g. from the openadstack repo)
+    # explicitly requests it. Build-only runs (other branches) skip this job.
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      (github.event_name == 'workflow_dispatch' && inputs.deploy)
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
