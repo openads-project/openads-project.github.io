@@ -13,9 +13,14 @@ openadsafety/openadsafety
 support/support.md
 ```
 
-[![Watch OpenADStack in karl.](./assets/teaser-openads.gif){align=center width=500px}](https://www.youtube.com/watch?v=B0Lnu-1w9KE){target=_blank}
+<div align="center">
+  <video controls autoplay width="720" src="https://github.com/user-attachments/assets/7dff88b3-5496-4715-b393-c3c4d9ecc4a3"></video>
+  <br>
+  <em>Watch OpenADStack in action above or <a href="https://www.youtube.com/watch?v=B0Lnu-1w9KE">open the full video on YouTube</a>.</em>
+</div>
+<br>
 
-The OpenADS project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
+The Open Automated Driving Systems project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
 
 - 🤖 [**OpenADStack**](./openadstack/openadstack.md) is a fully-functional open-source reference implementation of an Automated Driving System based on [ROS 2](https://www.ros.org/). It comprises perception, understanding, planning, and actuation modules, which are called [OpenADServices](https://github.com/search?q=topic%3Aopenadservice&type=repositories).
 - 🎮 [**OpenADSim**](./openadsim/openadsim.md) supports multiple simulators for prototyping and testing, including [CARLA](https://carla.org/) for environment and vehicle simulation and [SUMO](https://eclipse.dev/sumo/) for urban traffic simulation.
