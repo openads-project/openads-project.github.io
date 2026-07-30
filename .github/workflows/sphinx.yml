@@ -44,7 +44,7 @@ jobs:
           # The runner cannot use the SSH/internal remotes from .gitmodules; use HTTPS repositories instead
           git config submodule.docs/openadstack/openadstack.url "https://github.com/openads-project/openadstack.git"
           git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
-          git submodule update --init
+          git submodule update --init --recursive
 
       - name: Inject calculated disk sizes into docs
         run: |
