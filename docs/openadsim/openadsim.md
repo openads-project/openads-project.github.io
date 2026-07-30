@@ -9,7 +9,7 @@
 
 ```{toctree}
 :hidden:
-openadsim/docs/usage
+openadsim/docs/getting-started
 openadsim/docs/architecture
 openadsim/docs/configuration
 openadsim/docs/example-scenario-testing
