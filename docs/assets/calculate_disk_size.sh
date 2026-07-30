@@ -28,6 +28,7 @@ fi
 # compose files that use include plus service overrides.
 image_output="$(python3 - "$COMPOSE_FILE" <<'PY'
 from pathlib import Path
+import os
 import re
 import subprocess
 import sys
@@ -36,6 +37,28 @@ compose_file = Path(sys.argv[1]).resolve()
 
 KEY_PATTERN = re.compile(r"^(\s*)([^:#][^:]*):(?:\s*(.*))?$")
 LIST_ITEM_PATTERN = re.compile(r"^(\s*)-\s+(.*?)\s*$")
+
+
+def selected_profiles() -> list[str]:
+	return [item.strip() for item in os.environ.get("COMPOSE_PROFILES", "").split(",") if item.strip()]
+
+
+def active_profiles() -> set[str] | None:
+	# None means every profile is active (equivalent to "--profile *"); a set
+	# restricts activation to the profiles listed in COMPOSE_PROFILES.
+	profiles = set(selected_profiles())
+	if not profiles or "*" in profiles:
+		return None
+	return profiles
+
+
+def service_is_active(service_info: dict[str, object], profiles: set[str] | None) -> bool:
+	service_profiles = service_info.get("profiles")
+	if not service_profiles:
+		return True  # services without a profile are always enabled
+	if profiles is None:
+		return True  # all-profiles mode
+	return any(profile in profiles for profile in service_profiles)
 
 
 def strip_comment(text: str) -> str:
@@ -136,6 +159,7 @@ def load_compose_metadata(path: Path) -> tuple[list[Path], dict[str, dict[str, s
 	current_service: str | None = None
 	current_service_indent: int | None = None
 	current_extends_indent: int | None = None
+	current_profiles_indent: int | None = None
 
 	for raw_line in path.read_text().splitlines():
 		line = strip_comment(raw_line)
@@ -151,6 +175,7 @@ def load_compose_metadata(path: Path) -> tuple[list[Path], dict[str, dict[str, s
 			current_service = None
 			current_service_indent = None
 			current_extends_indent = None
+			current_profiles_indent = None
 
 			if key_match is None:
 				continue
@@ -174,7 +199,21 @@ def load_compose_metadata(path: Path) -> tuple[list[Path], dict[str, dict[str, s
 				includes.append((path.parent / item).resolve())
 			continue
 
-		if section != "services" or key_match is None:
+		if section != "services":
+			continue
+
+		# Collect the items of a "profiles:" block list before the generic
+		# key handling below discards non key-value lines.
+		if current_profiles_indent is not None and current_service is not None:
+			if list_match is not None and indent > current_profiles_indent:
+				item = parse_scalar(list_match.group(2))
+				if item is not None:
+					services[current_service]["profiles"].append(item)
+				continue
+			if indent <= current_profiles_indent:
+				current_profiles_indent = None
+
+		if key_match is None:
 			continue
 
 		key = key_match.group(2).strip()
@@ -182,12 +221,13 @@ def load_compose_metadata(path: Path) -> tuple[list[Path], dict[str, dict[str, s
 
 		if current_service is None or current_service_indent is None or indent <= current_service_indent:
 			current_extends_indent = None
+			current_profiles_indent = None
 			if value is None:
 				current_service = key
 				current_service_indent = indent
 				services.setdefault(
 					current_service,
-					{"image": None, "extends_file": None, "extends_service": None},
+					{"image": None, "extends_file": None, "extends_service": None, "profiles": None},
 				)
 			else:
 				current_service = None
@@ -201,6 +241,11 @@ def load_compose_metadata(path: Path) -> tuple[list[Path], dict[str, dict[str, s
 
 		if key == "image" and value is not None:
 			service_info["image"] = value
+			continue
+
+		if key == "profiles":
+			service_info["profiles"] = parse_inline_list(key_match.group(3)) if value is not None else []
+			current_profiles_indent = None if value is not None else indent
 			continue
 
 		if key == "extends":
@@ -259,6 +304,7 @@ def resolve_service_images(
 def collect_declared_images(compose_path: Path) -> list[str]:
 	images: set[str] = set()
 	visited_files: set[Path] = set()
+	profiles = active_profiles()
 
 	def visit(path: Path) -> None:
 		path = path.resolve()
@@ -272,6 +318,9 @@ def collect_declared_images(compose_path: Path) -> list[str]:
 			visit(include_path)
 
 		for service_name, service_info in services.items():
+			if not service_is_active(service_info, profiles):
+				continue
+
 			if service_info.get("image") is not None:
 				images.add(service_info["image"])
 				continue
@@ -284,8 +333,16 @@ def collect_declared_images(compose_path: Path) -> list[str]:
 
 
 def collect_images(compose_path: Path) -> list[str]:
+	# Honour COMPOSE_PROFILES so the size matches the images that profile pulls;
+	# with no selection, enable every profile ("--profile *") as before.
+	selected = selected_profiles()
+	if selected:
+		profile_args = [argument for profile in selected for argument in ("--profile", profile)]
+	else:
+		profile_args = ["--profile", "*"]
+
 	result = subprocess.run(
-		["docker", "compose", "-f", str(compose_path), "--profile", "*", "config", "--images"],
+		["docker", "compose", "-f", str(compose_path), *profile_args, "config", "--images"],
 		check=False,
 		capture_output=True,
 		text=True,
