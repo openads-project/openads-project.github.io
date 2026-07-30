@@ -62,8 +62,14 @@ jobs:
 
       - name: Build Sphinx documentation
         run: |
+          set -eo pipefail
           cd docs
-          sphinx-build -b html . _build/html
+          # Build the docs, echoing the output while also capturing it, then fail if Sphinx emitted a warning.
+          sphinx-build -b html . _build/html 2>&1 | tee build.log
+          if grep -q "WARNING:" build.log; then
+            echo "::error::Sphinx build produced warnings (see the log above)."
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
