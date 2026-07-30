@@ -46,6 +46,14 @@ jobs:
           git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
           git submodule update --init --recursive
 
+      - name: Ensure submodules are up to date
+        run: |
+          # Advance the top-level submodules to the tip of their tracked branches (set in .gitmodules) so the
+          # docs are built against current openadstack/openadsim content.
+          git submodule update --remote
+          # Re-check out openadsim's nested submodule at the commit pinned by its now-updated tree.
+          git -C docs/openadsim/openadsim submodule update --init --recursive
+
       - name: Inject calculated disk sizes into docs
         run: |
           bash -c "export COMPOSE_PROFILES=demo-basic && docs/assets/inject_disk_sizes.sh docs/openadstack/openadstack/demo/docker-compose.yml docs/start/start.md DISK_SIZE_OPENADSTACK"
