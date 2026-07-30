@@ -1,8 +1,7 @@
 [submodule "docs/openadstack/openadstack"]
 	path = docs/openadstack/openadstack
 	url = git@github.com:openads-project/openadstack.git
-	; TODO: change to main
-	branch = openadstack
+	branch = main
 [submodule "docs/openadsim/openadsim"]
 	path = docs/openadsim/openadsim
 	url = git@gitlab.ika.rwth-aachen.de:fb-fi/its-compositions/simulation-platform.git
