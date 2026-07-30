@@ -45,13 +45,6 @@ jobs:
           git config submodule.docs/openadstack/openadstack.url "https://github.com/openads-project/openadstack.git"
           git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
           git submodule update --init
-          # openadsim nests the same openadstack repository (its compose files are needed to resolve openadsim
-          # for the disk-size calculation) but references it via an SSH URL the runner cannot use. Point that
-          # nested module - whose submodule name is "openadstack" - at the HTTPS GitHub repository and check it
-          # out. Keep the pinned commit (no --remote) so the expected directory layout is used; LFS content is
-          # fetched by the smudge filter during checkout.
-          git -C docs/openadsim/openadsim config submodule.openadstack.url "https://github.com/openads-project/openadstack.git"
-          git -C docs/openadsim/openadsim submodule update --init openadstack/openadstack
 
       - name: Inject calculated disk sizes into docs
         run: |
