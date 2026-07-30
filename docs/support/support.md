@@ -9,6 +9,9 @@ OpenADS spans multiple repositories, tools, and runtime environments. A good sup
 
 ## Where To Ask What
 
+> [!TIP]
+> Have a look at our public [backlog](https://github.com/orgs/openads-project/projects/4/views/1) and [roadmap](https://github.com/orgs/openads-project/projects/4/views/4) to get an idea of current topics and what's up next.
+
 Use the following channels depending on the type of request:
 
 - **Bug reports and feature requests:** Open an issue in the most relevant [OpenADS repository](https://github.com/openads-project/#repositories).
