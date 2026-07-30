@@ -14,7 +14,7 @@ support/support.md
 ```
 
 <div align="center">
-  <video controls autoplay width="720" src="https://github.com/openads-project/openads-project.github.io/raw/refs/heads/downstream-pipeline/docs/assets/shotcut/openads-teaser.webm"></video>
+  <video controls autoplay width="720" src="https://github.com/openads-project/openads-project.github.io/raw/refs/heads/main/docs/assets/shotcut/openads-teaser.webm"></video>
   <br>
   <em>Watch OpenADStack in action above or <a href="https://www.youtube.com/watch?v=B0Lnu-1w9KE">open the full video on YouTube</a>.</em>
 </div>
