@@ -37,7 +37,6 @@ jobs:
 
       - name: Update submodules to latest state
         env:
-          GH_TOKEN: ${{ secrets.OPENADS_REPO_READ_TOKEN != '' && secrets.OPENADS_REPO_READ_TOKEN || github.token }}
           GITLAB_OPENADSIM_TOKEN: ${{ secrets.GITLAB_OPENADSIM_TOKEN }}
         run: |
           # Authenticate GitLab access without exposing the token in the submodule URL
@@ -45,11 +44,14 @@ jobs:
           # The runner cannot use the SSH/internal remotes from .gitmodules; use HTTPS repositories instead
           git config submodule.docs/openadstack/openadstack.url "https://github.com/openads-project/openadstack.git"
           git config submodule.docs/openadsim/openadsim.url "https://gitlab.ika.rwth-aachen.de/fb-fi/its-compositions/simulation-platform.git"
-          # Recurse so the openadstack repository nested inside openadsim is checked out too; without it
-          # openadsim's compose files cannot be resolved and the disk-size calculation fails. The nested
-          # module pins no branch, so keep the pinned commit (no --remote) to get the expected layout.
-          # LFS content is fetched by the smudge filter during checkout.
-          git submodule update --init --recursive
+          git submodule update --init
+          # openadsim nests the same openadstack repository (its compose files are needed to resolve openadsim
+          # for the disk-size calculation) but references it via an SSH URL the runner cannot use. Point that
+          # nested module - whose submodule name is "openadstack" - at the HTTPS GitHub repository and check it
+          # out. Keep the pinned commit (no --remote) so the expected directory layout is used; LFS content is
+          # fetched by the smudge filter during checkout.
+          git -C docs/openadsim/openadsim config submodule.openadstack.url "https://github.com/openads-project/openadstack.git"
+          git -C docs/openadsim/openadsim submodule update --init openadstack/openadstack
 
       - name: Inject calculated disk sizes into docs
         run: |
