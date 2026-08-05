@@ -31,7 +31,7 @@ The Open Automated Driving Systems project is a **collaborative, open-source eco
 
 ## Integrations
 
-OpenADS is used in multiple real implementations, including research vehicles of different sizes, as well as, infrastructure test fields. If you are also an active user of OpenADS, you are welcome to [add your own integrations](https://github.com/openads-project/openads-project.github.io/edit/init/docs/index.md) relying on OpenADS.
+OpenADS is used in multiple real implementations, including research vehicles of different sizes, as well as, infrastructure test fields. If you are also an active user of OpenADS, you are welcome to [add your own integrations](https://github.com/openads-project/openads-project.github.io/edit/main/docs/index.md) relying on OpenADS.
 
 ### Research Vehicles
 
@@ -63,7 +63,7 @@ The vehicle is now operated by the [Institute for Automotive Engineering (ika)](
 
 ## Projects
 
-OpenADS has been developed and used in several national and international projects. You are welcome to [add your own projects](https://github.com/openads-project/openads-project.github.io/edit/init/docs/index.md) relying on OpenADS.
+OpenADS has been developed and used in several national and international projects. You are welcome to [add your own projects](https://github.com/openads-project/openads-project.github.io/edit/main/docs/index.md) relying on OpenADS.
 
 ::::{grid} 1 1 2 3
 :gutter: 2
