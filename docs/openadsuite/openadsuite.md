@@ -17,7 +17,7 @@ We welcome contributions across the OpenADS repositories and ask you to follow t
 
 - Feel free to open issues and pull requests to report bugs, suggest improvements, or propose new features. Keep pull requests in the `Draft` state until they are ready for review to respect reviewers' time.
 - AI tools may assist with preparing issues or pull requests, but a human author must remain responsible for the submission and for addressing maintainer feedback and requested changes.
-- Adopt community best practices where possible. Use [openads_demo_module](https://github.com/openads-project/openads_demo_module) as a template and integrate the provided CI workflows into your OpenADS modules.
+- Adopt community best practices where possible. Use [openads_demo_service](https://github.com/openads-project/openads_demo_service) as a template and integrate the provided CI workflows into your OpenADS modules.
 - For code contributions, follow the [ROS 2 developer guide](https://docs.ros.org/en/jazzy/The-ROS2-Project/Contributing/Developer-Guide.html).
 
 ## Development
@@ -88,10 +88,10 @@ Found a bug or want to add a feature to an existing OpenADS module? The followin
 
 Want to add functionality that is not yet covered by an existing OpenADS module, or integrate open source software from another ecosystem into OpenADS? A growing distributed ecosystem makes it easier to compare and test different approaches. The following steps will help you create a new OpenADS module quickly, whether you are building new functionality or integrating an existing solution:
 
-1. Use the [openads_demo_module](https://github.com/openads-project/openads_demo_module) template repository to create a new GitHub repository in the organization of your choice by selecting the ![Use this template](./assets/template-button.png){width=100px} &#8594; `Create a new repository` button in the upper-right corner.
+1. Use the [openads_demo_service](https://github.com/openads-project/openads_demo_service) template repository to create a new GitHub repository in the organization of your choice by selecting the ![Use this template](./assets/template-button.png){width=100px} &#8594; `Create a new repository` button in the upper-right corner.
 2. Select a name for the new repository. In most cases, this should match the name of the main ROS package in the repository and follow the [ROS naming convention](https://ros.org/reps/rep-0144.html), for example `openads_test_module`.
-3. Configure the [recommended GitHub repository settings](https://github.com/openads-project/openads_demo_module#%EF%B8%8F-recommended-github-settings). This also allows CI workflows to push Docker images to the container registry in your GitHub organization or personal namespace.
-4. Verify that the `docker-ros` workflow successfully created a development image in the repository's [Actions](https://github.com/openads-project/openads_demo_module/actions/workflows/docker-ros.yml) tab. If needed, use `Re-Run All Jobs` to restart the pipeline.
+3. Configure the [recommended GitHub repository settings](https://github.com/openads-project/openads_demo_service#%EF%B8%8F-recommended-github-settings). This also allows CI workflows to push Docker images to the container registry in your GitHub organization or personal namespace.
+4. Verify that the `docker-ros` workflow successfully created a development image in the repository's [Actions](https://github.com/openads-project/openads_demo_service/actions/workflows/docker-ros.yml) tab. If needed, use `Re-Run All Jobs` to restart the pipeline.
 5. Clone the repository to your workstation. Use the `--recursive` argument to include the development environment submodule, or run `git submodule update --init` afterward if you cloned without it:
 
     ```bash
@@ -114,7 +114,7 @@ Want to add functionality that is not yet covered by an existing OpenADS module,
 8. Visual Studio Code will automatically open the source code mounted from your locally cloned repository to `/docker-ros/ws/src/target` in the container.
 9. Compile the source code with `CTRL-B` or `F1` &#8594; `Tasks: Run Task` &#8594; `Build with Build Type`.
 10. Run the compiled code with the default command configured in `docker-ros.yml` by executing `run_default_command`.
-11. You can remove the sample ROS packages `openads_demo_module` and `openads_demo_module_interfaces` and create a new package template that matches your needs with `ros2-pkg-create --template ros2_cpp_pkg .`.
-12. Make sure to set a [default command](https://github.com/openads-project/openads_demo_module/blob/f524d148d43d26f77b77d3196bc445d9ef030cb9/.github/workflows/docker-ros.yml#L24), which is automatically executed on start of deployment containers.
+11. You can remove the sample ROS packages `openads_demo_service` and `openads_demo_service_interfaces` and create a new package template that matches your needs with `ros2-pkg-create --template ros2_cpp_pkg .`.
+12. Make sure to set a [default command](https://github.com/openads-project/openads_demo_service/blob/main/.github/workflows/docker-ros.yml#L24), which is automatically executed on start of deployment containers.
 13. Run `.openads-dev-environment/scripts/generate_readme.py` to generate the top-level and package README files, resolve the remaining TODO placeholders, then rerun the generator until it produces no further changes. Run `.openads-dev-environment/scripts/check_repository_consistency.py` to verify that the repository passes the consistency checks.
 14. Once your module is ready and passes all checks, create a [release](releases.md) and open a pull request in the [OpenADStack](https://github.com/openads-project/openadstack) repository to suggest integrating the module.
