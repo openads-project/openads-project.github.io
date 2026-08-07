@@ -12,14 +12,14 @@
 openadsim/docs/getting-started
 openadsim/docs/architecture
 openadsim/docs/configuration
-openadsim/docs/example-scenario-testing
+openadsim/docs/example-scenario-execution
 openadsim/docs/example-cooperative-perception
 openadsim/docs/example-ml-planning
 openadsim/docs/custom-integration
 ```
 
 ```{include} ./openadsim/README.md
-:start-after: "# OpenAD**Sim**"
+:start-after: "# OpenADSim"
 :relative-docs: ./docs
 :relative-images:
 ```
