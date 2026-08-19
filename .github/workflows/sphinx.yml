@@ -11,7 +11,7 @@ on:
       openadstack_ref:
         description: 'openadstack branch to check out for its submodule (blank = the branch tracked in .gitmodules)'
         type: string
-        default: 'architecture-roadmap'
+        default: ''
       openadsim_ref:
         description: 'openadsim branch to check out for its submodule (blank = the branch tracked in .gitmodules)'
         type: string
