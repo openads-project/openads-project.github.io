@@ -15,7 +15,7 @@ on:
       openadsim_ref:
         description: 'openadsim branch to check out for its submodule (blank = the branch tracked in .gitmodules)'
         type: string
-        default: ''
+        default: 'revert-lfs'
 
 permissions:
   contents: read
