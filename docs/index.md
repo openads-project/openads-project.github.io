@@ -20,6 +20,9 @@ support/support.md
 </div>
 <br>
 
+> [!TIP]
+> Join our [OpenADS Tutorial](https://openads-project.github.io/tutorial-itsc-26/) on 15 September 2026 at the [IEEE International Conference on Intelligent Transportation Systems (ITSC)](https://ieee-itsc.org/2026/) in Naples, Italy.
+
 The Open Automated Driving Systems project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
 
 - 🤖 [**OpenADStack**](./openadstack/openadstack.md) is a fully-functional open-source reference implementation of an Automated Driving System based on [ROS 2](https://www.ros.org/). It comprises perception, understanding, planning, and actuation modules, which are called [OpenADServices](https://github.com/search?q=topic%3Aopenadservice&type=repositories).
