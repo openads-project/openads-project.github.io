@@ -40,6 +40,7 @@ exclude_patterns = [
     'openadsim/openadsim/README.md',
     'openadsim/openadsim/carla-simulation/**',
     'openadsim/openadsim/sumo-simulation/**',
+    'openadsim/openadsim/scenarios/**',
     'openadsim/openadsim/examples/**',
     'openadsim/openadsim/openadstack/**',
     'openadsim/openadsim/utils/**',
