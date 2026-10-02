@@ -21,7 +21,9 @@ support/support.md
 <br>
 
 > [!TIP]
-> Join our [OpenADS Tutorial](https://openads-project.github.io/tutorial-itsc-26/) on 15 September 2026 at the [IEEE International Conference on Intelligent Transportation Systems (ITSC)](https://ieee-itsc.org/2026/) in Naples, Italy.
+> The first OpenADS Tutorial took place at IEEE ITSC 2026 in Naples on 15 September 2026. We are happy to make all tutorial materials available online.
+>
+> [Tutorial Website](https://openads-project.github.io/tutorial-itsc-26/) | [Slides](https://openads-project.github.io/tutorial-itsc-26/2026-09_15_ITSC_OpenADS.pdf) | [Video](https://www.youtube.com/watch?v=xDkKu5G0FwI)
 
 The Open Automated Driving Systems project is a **collaborative, open-source ecosystem for Automated Driving Systems** comprising the following features:
 
