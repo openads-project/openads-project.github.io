@@ -10,6 +10,7 @@ openadstack/docs/getting-started
 openadstack/docs/functional-architecture
 openadstack/docs/integration-architecture
 openadstack/docs/deployment-composition
+openadstack/docs/system-analysis
 ```
 
 ```{include} ./openadstack/README.md
